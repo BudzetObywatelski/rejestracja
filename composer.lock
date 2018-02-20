@@ -1,0 +1,165 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "361216afd5cda035773b7d58a242c28b",
+    "packages": [
+        {
+            "name": "dframe/database",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dframe/database.git",
+                "reference": "ec7740a53f2f661b8985de58af4625f8d93f669c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dframe/database/zipball/ec7740a53f2f661b8985de58af4625f8d93f669c",
+                "reference": "ec7740a53f2f661b8985de58af4625f8d93f669c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dframe\\Database\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Slawek Kaleta",
+                    "email": "slaszka@gmail.com"
+                }
+            ],
+            "description": "Database pdo wrapper",
+            "keywords": [
+                "database",
+                "insert",
+                "mysql",
+                "pdo",
+                "pdowraper",
+                "query",
+                "update",
+                "wraper"
+            ],
+            "time": "2017-11-04T18:44:36+00:00"
+        },
+        {
+            "name": "dframe/dframe",
+            "version": "v3.27.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dframe/dframe.git",
+                "reference": "7c27c5fa057de1b4d28547d7f2623d124305ecfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dframe/dframe/zipball/7c27c5fa057de1b4d28547d7f2623d124305ecfb",
+                "reference": "7c27c5fa057de1b4d28547d7f2623d124305ecfb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "^1.4",
+                "natxet/CssMin": "^3.0",
+                "patchwork/jsqueeze": "^2.0",
+                "ptachoire/cssembed": "^1.0",
+                "smarty/smarty": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dframe\\": "src"
+                },
+                "files": [
+                    "src/Functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Slawek Kaleta",
+                    "email": "slaszka@gmail.com"
+                }
+            ],
+            "description": "Framework Dframe",
+            "keywords": [
+                "dframe",
+                "framework",
+                "mvc"
+            ],
+            "time": "2018-01-22T15:33:32+00:00"
+        },
+        {
+            "name": "smarty/smarty",
+            "version": "v3.1.31",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smarty-php/smarty.git",
+                "reference": "c7d42e4a327c402897dd587871434888fde1e7a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c7d42e4a327c402897dd587871434888fde1e7a9",
+                "reference": "c7d42e4a327c402897dd587871434888fde1e7a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "libs/bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Monte Ohrt",
+                    "email": "monte@ohrt.com"
+                },
+                {
+                    "name": "Uwe Tews",
+                    "email": "uwe.tews@googlemail.com"
+                },
+                {
+                    "name": "Rodney Rehm",
+                    "email": "rodney.rehm@medialize.de"
+                }
+            ],
+            "description": "Smarty - the compiling PHP template engine",
+            "homepage": "http://www.smarty.net",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2016-12-14T21:57:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
