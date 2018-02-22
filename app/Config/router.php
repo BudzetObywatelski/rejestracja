@@ -2,7 +2,7 @@
 
 return array(
     'https' => false,
-    'NAME_CONTROLLER' => 'page',    // Default Controller for router
+    'NAME_CONTROLLER' => 'Users',    // Default Controller for router
     'NAME_METHOD' => 'index',       // Default Action for router
     'publicWeb' => '',              // Path for public web (web or public_html)
     'assetsPath' => 'assets',
