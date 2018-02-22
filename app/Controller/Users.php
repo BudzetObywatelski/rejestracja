@@ -41,7 +41,7 @@ class UsersController extends \Controller\Controller
 				}
 
 				if(!empty($errors)){
-					return $this->response->json(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
+					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
 				}
 
 				$UsersModel = $this->loadModel('Users');
@@ -51,13 +51,13 @@ class UsersController extends \Controller\Controller
 
 				$getUserByPasses = $UsersModel->getUserByPasses($firstname, $pass_code);
 				if(!$getUserByPasses['return']){
-					return $this->response->json(array('code' => 400, 'response' => '', 'errors' => array('Nie instnieje imię z tym koden identyfikacyjnym.'), 'data' => array()))->status(400);
+					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => array('Nie instnieje imię z tym koden identyfikacyjnym.'), 'data' => array()))->status(400);
 				}
 
 				$this->baseClass->session->set('id', $getUserByPasses['data']['id']);
 
 				break;
 		}
-		return $this->response->json(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
+		return Response::renderJSON(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
 	}
 }
