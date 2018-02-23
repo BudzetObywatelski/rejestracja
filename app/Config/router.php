@@ -7,9 +7,9 @@ return array(
     'publicWeb' => '',              // Path for public web (web or public_html)
     'assetsPath' => 'assets',
     
-    'documents/:pageId' => array(
-        'documents/[pageId]/', 
-        'task=page&action=show&pageId=[pageId]'
+    'users/login' => array(
+        'users/login', 
+        'task=users&action=login'
     ),
 
     'error/:code' => array(
