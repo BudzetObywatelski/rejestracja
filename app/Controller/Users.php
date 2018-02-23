@@ -21,6 +21,13 @@ class UsersController extends \Controller\Controller
 	public function index(){
 		$View = $this->loadView('Index');
 
+		$registerConfig = Config::load('options')->get('register');
+
+		$dateNow = date('Y-m-d');
+		$allowLogin = ($dateNow >= $registerConfig['start'] AND $dateNow <= $registerConfig['end']) ? true : false;
+
+		$View->assign('registerConfig', $registerConfig);
+		$View->assign('allowLogin', $allowLogin);
 		$View->render('users/index');
 	}
 
@@ -44,6 +51,15 @@ class UsersController extends \Controller\Controller
 					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
 				}
 
+				$registerConfig = Config::load('options')->get('register');
+
+				$dateNow = date('Y-m-d');
+				$allowLogin = ($dateNow >= $registerConfig['start'] AND $dateNow <= $registerConfig['end']) ? true : false;
+
+				if(!$allowLogin){
+					return Response::renderJSON(array('code' => 403, 'response' => '', 'errors' => array('Rejestracja jeszcze się nie zaczęła lub już się zakończyła.'), 'data' => array()))->status(403);
+				}
+
 				$UsersModel = $this->loadModel('Users');
 
 				$firstname = htmlspecialchars($post['firstname']);
@@ -55,6 +71,7 @@ class UsersController extends \Controller\Controller
 				}
 
 				$this->baseClass->session->set('id', $getUserByPasses['data']['id']);
+				return Response::renderJSON(array('code' => 200, 'response' => 'Pomyślnie zalogowano.', 'errors' => array(), 'data' => array()))->status(200);
 
 				break;
 		}
