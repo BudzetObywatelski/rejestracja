@@ -1,4 +1,31 @@
-{include file="../header.html.php"}
+<?php
+/* Smarty version 3.1.31, created on 2018-02-23 12:38:49
+  from "D:\xampp\htdocs\rejestracja\app\View\templates\users\index.html.php" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.31',
+  'unifunc' => 'content_5a8ffd4952d0a2_02380167',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'c5b832395261658d16e37e76e3e9d9d533648f34' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\index.html.php',
+      1 => 1519385928,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../header.html.php' => 1,
+    'file:../footer.html.php' => 1,
+  ),
+),false)) {
+function content_5a8ffd4952d0a2_02380167 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 
 	    <!--   Big container   -->
@@ -32,7 +59,7 @@
 		                            <div class="tab-pane" id="login">
 		                            	<div class="row">
 
-		                            		{if !isset($allowLogin) OR !$allowLogin}
+		                            		<?php if (!isset($_smarty_tpl->tpl_vars['allowLogin']->value) || !$_smarty_tpl->tpl_vars['allowLogin']->value) {?>
 
 			                            	<div class="col-sm-12">
 			                            		<div class="time-info">
@@ -45,7 +72,7 @@
 												</div>
 			                            	</div>
 
-			                            	{else}
+			                            	<?php } else { ?>
 
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
@@ -72,7 +99,7 @@
 			                                	</div>
 			                                </div>
 
-			                                {/if}
+			                                <?php }?>
 
 		                                	<div class="col-sm-12">
 		                                		<div class="under-text">
@@ -102,4 +129,6 @@
 	    	</div> <!-- row -->
 		</div> <!--  big container -->
 	</div>
-{include file="../footer.html.php"}
+<?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}
