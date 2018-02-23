@@ -116,6 +116,14 @@
 		        cache: false,
 		        success:function(response){
 		            console.log(response)
+		            if(response.code == 200){
+		            	toastr.success(response.response);
+		            }
+		        },
+		        error:function(response){
+		        	$.each(response.responseJSON.errors, function(key, error){
+	            		toastr.error(error)
+	            	})
 		        }
 		    })
 		}
