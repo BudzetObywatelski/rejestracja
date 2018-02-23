@@ -129,6 +129,7 @@
 		}
 
 		$( document ).ready(function() {
+			$('.loading').remove();
 		    $('.login-button').click(function(){
 		    	var login_cred = $('form').find('input[name="name"]').val();
 		    	var pass_cred = $('form').find('input[name="pass"]').val();

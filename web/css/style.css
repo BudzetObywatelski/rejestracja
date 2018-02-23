@@ -41,7 +41,6 @@
 }
 
 .loading {
-	display: none !important;
     position: absolute;
     font-size: 5em;
     color: #f44336;
