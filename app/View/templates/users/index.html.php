@@ -1,4 +1,5 @@
 {include file="../header.html.php"}
+
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 
 	    <!--   Big container   -->
@@ -12,7 +13,7 @@
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
-		                    <form action="" method="">
+		                    <form action="" method="" autocomplete="off">
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
@@ -56,7 +57,7 @@
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Imie, tylko pierwsze imię, bez nazwiska</label>
-				                                          	<input name="name2" type="password" class="form-control">
+				                                          	<input name="name" type="text" class="form-control" autocomplete="off">
 				                                        </div>
 													</div>
 
@@ -66,7 +67,7 @@
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
-				                                          	<input name="name2" type="password" class="form-control">
+				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
 				                                        </div>
 													</div>
 			                                	</div>
@@ -85,7 +86,7 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd' name='Login' value="login"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="login"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
@@ -102,4 +103,31 @@
 	    	</div> <!-- row -->
 		</div> <!--  big container -->
 	</div>
+
+	<script type="text/javascript">
+		function login(login, pass){
+		    $.ajax({
+		        method:'POST',
+		        url:'{$router->makeUrl("users/login")}',
+		        data: {
+		            firstname: login,
+		            pass_code: pass
+		        },
+		        cache: false,
+		        success:function(response){
+		            console.log(response)
+		        }
+		    })
+		}
+
+		$( document ).ready(function() {
+		    $('.login-button').click(function(){
+		    	var login_cred = $('form').find('input[name="name"]').val();
+		    	var pass_cred = $('form').find('input[name="pass"]').val();
+		        login(login_cred, pass_cred);
+		    })
+		});
+	</script>
+
+
 {include file="../footer.html.php"}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-23 12:38:49
+/* Smarty version 3.1.31, created on 2018-02-23 13:05:15
   from "D:\xampp\htdocs\rejestracja\app\View\templates\users\index.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a8ffd4952d0a2_02380167',
+  'unifunc' => 'content_5a90037b665874_48462644',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5b832395261658d16e37e76e3e9d9d533648f34' => 
     array (
       0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\index.html.php',
-      1 => 1519385928,
+      1 => 1519387514,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a8ffd4952d0a2_02380167 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a90037b665874_48462644 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 
@@ -39,7 +40,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
-		                    <form action="" method="">
+		                    <form action="" method="" autocomplete="off">
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
@@ -83,7 +84,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Imie, tylko pierwsze imię, bez nazwiska</label>
-				                                          	<input name="name2" type="password" class="form-control">
+				                                          	<input name="name" type="text" class="form-control" autocomplete="off">
 				                                        </div>
 													</div>
 
@@ -93,7 +94,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
-				                                          	<input name="name2" type="password" class="form-control">
+				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
 				                                        </div>
 													</div>
 			                                	</div>
@@ -112,7 +113,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd' name='Login' value="login"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="login"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
@@ -129,6 +130,36 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 	    	</div> <!-- row -->
 		</div> <!--  big container -->
 	</div>
+
+	<?php echo '<script'; ?>
+ type="text/javascript">
+		function login(login, pass){
+		    $.ajax({
+		        method:'POST',
+		        url:'<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl("users/login");?>
+',
+		        data: {
+		            firstname: login,
+		            pass_code: pass
+		        },
+		        cache: false,
+		        success:function(response){
+		            console.log(response)
+		        }
+		    })
+		}
+
+		$( document ).ready(function() {
+		    $('.login-button').click(function(){
+		    	var login_cred = $('form').find('input[name="name"]').val();
+		    	var pass_cred = $('form').find('input[name="pass"]').val();
+		        login(login_cred, pass_cred);
+		    })
+		});
+	<?php echo '</script'; ?>
+>
+
+
 <?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }
