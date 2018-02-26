@@ -390,7 +390,7 @@ $(document).ready(function(){
           }
 
            navigation.find('li').css('width',$width + '%');
-           $first_li = navigation.find('li:first-child a').html();
+           $first_li = navigation.find('.active a').html();
            $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
            $('.wizard-card .wizard-navigation').append($moving_div);
            refreshAnimation($wizard, index);
@@ -409,7 +409,7 @@ $(document).ready(function(){
 
         onTabShow: function(tab, navigation, index) {
             var $total = navigation.find('li').length;
-            var $current = index+1;
+            var $current = navigation.find('li').index(navigation.find('.active'))+1
 
             var $wizard = navigation.closest('.wizard-card');
 
@@ -506,7 +506,10 @@ function refreshAnimation($wizard, index){
     total_steps = $wizard.find('li').length;
     move_distance = $wizard.width() / total_steps;
     step_width = move_distance;
-    move_distance *= index;
+    $.each($('#navTab').children(), function(key, value){
+    	if($(value).hasClass('active'))
+    		move_distance *= key
+    })
 
     $current = index + 1;
 

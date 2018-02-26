@@ -1,4 +1,31 @@
-{include file="../header.html.php"}
+<?php
+/* Smarty version 3.1.31, created on 2018-02-26 13:09:34
+  from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.31',
+  'unifunc' => 'content_5a93f8fea97f15_70985115',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6ba5dbee15c0274a165d98f5b60f984e228921bb' => 
+    array (
+      0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php',
+      1 => 1519646847,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../header.html.php' => 1,
+    'file:../footer.html.php' => 1,
+  ),
+),false)) {
+function content_5a93f8fea97f15_70985115 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 
 	    <!--   Big container   -->
@@ -34,14 +61,25 @@
 		                                <div class="row">
 		                                    <div class="col-sm-10 col-sm-offset-1">
 		                                        <div class="col-sm-4 important-checkboxes">
-		                                        	{foreach from=$deadlines item=deadline}
+		                                        	<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['deadlines']->value, 'deadline');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['deadline']->value) {
+?>
 		                                            <div class="checkbox">
 													    <label>
-														    <input type="checkbox" name="{$dealine.id}">
+														    <input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['dealine']->value['id'];?>
+">
 													    </label>
-													    {$deadline.value}
+													    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
+
 												    </div>
-												    {/foreach}
+												    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+?>
+
 		                                        </div>
 		                                    </div>
 		                                </div>
@@ -52,7 +90,8 @@
 	                                    <input type='button' class='btn btn-fill btn-success btn-wd' name='next' value='Dalej' />
 	                                </div>
 	                                <div class="pull-left">
-	                                    <a href="{$router->makeUrl('panel,panel/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
+	                                    <a href="<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl('panel,panel/logout');?>
+" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
 
 <!-- 										<div class="footer-checkbox">
 											<div class="col-sm-12">
@@ -74,9 +113,13 @@
 	    	</div> <!-- row -->
 		</div> <!--  big container -->
 	</div>
-	<script type="text/javascript">
+	<?php echo '<script'; ?>
+ type="text/javascript">
 		$( document ).ready(function() {
 			$('.loading').remove();
 		});
-	</script>
-{include file="../footer.html.php"}
+	<?php echo '</script'; ?>
+>
+<?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

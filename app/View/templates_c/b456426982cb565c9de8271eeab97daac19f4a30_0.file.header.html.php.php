@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-23 12:42:52
+/* Smarty version 3.1.31, created on 2018-02-23 13:57:10
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/header.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a8ffe3c7df675_47698465',
+  'unifunc' => 'content_5a900fa68f3a99_37632303',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b456426982cb565c9de8271eeab97daac19f4a30' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/header.html.php',
-      1 => 1519386163,
+      1 => 1519390444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a8ffe3c7df675_47698465 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a900fa68f3a99_37632303 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,6 +55,16 @@ function content_5a8ffe3c7df675_47698465 (Smarty_Internal_Template $_smarty_tpl)
 " rel="stylesheet" type="text/css" />
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('js/materializewizard.js');?>
+"><?php echo '</script'; ?>
+>
+
+
+    <link href="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('css/toastr.min.css');?>
+" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('css/toastr_custom.css');?>
+" rel="stylesheet" type="text/css" />
+    <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('js/toastr.min.js');?>
 "><?php echo '</script'; ?>
 >
 

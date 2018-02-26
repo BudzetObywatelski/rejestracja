@@ -18,6 +18,17 @@ use Dframe\Router\Response;
 
 class UsersController extends \Controller\Controller
 {
+	public function init(){
+		$sessionId = $this->baseClass->session->get('id');
+		if($sessionId != NULL OR !empty($sessionId)){
+			$UsersModel = $this->loadModel('Users');
+			$getUserById = $UsersModel->getUserById($sessionId);
+			if($getUserById['return']){
+				return $this->router->redirect('panel,panel/deadlines');
+			}
+		}
+	}
+
 	public function index(){
 		$View = $this->loadView('Index');
 
@@ -39,7 +50,7 @@ class UsersController extends \Controller\Controller
 				$errors = array();
 				if (!isset($post['firstname']) OR empty($post['firstname']))
 				{
-					$errors['firstname'] = 'Nie podano imienia.'; 
+					$errors['firstname'] = 'Nie podano imienia.';
 				}
 
 				if (!isset($post['pass_code']) OR empty($post['pass_code']))
@@ -76,5 +87,10 @@ class UsersController extends \Controller\Controller
 				break;
 		}
 		return Response::renderJSON(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
+	}
+
+	public function logout(){
+		$this->baseClass->session->end();
+		return $this->router->redirect('users/index');
 	}
 }

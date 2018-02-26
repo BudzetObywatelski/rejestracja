@@ -27,4 +27,14 @@ class UsersModel extends \Model\Model
         }
         return $this->methodResult(true, array('data' => $result));
     }
+
+    public function getUserById($id){
+    	$result = $this->baseClass->db->select('users', '*', array('id' => $id))->result();
+
+        if (!isset($result['id']))
+        {
+        	return $this->methodResult(false);
+        }
+        return $this->methodResult(true, array('data' => $result));
+    }
 }

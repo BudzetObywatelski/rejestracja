@@ -21,15 +21,15 @@
 		                        	</h3>
 		                    	</div>
 								<div class="wizard-navigation">
-									<ul>
-			                            <li><a href="#">Logowanie</a></li>
-			                            <li><a href="#">Terminy</a></li>
+									<ul id="navTab">
+			                            <li><a>Logowanie</a></li>
+			                            <li><a>Terminy</a></li>
 			                            <li><a href="#personalData" data-toggle="tab">Dane osobowe</a></li>
 			                        </ul>
 								</div>
 
 		                        <div class="tab-content">
-		                            <div class="tab-pane" id="personalData">
+		                            <div class="tab-pane active" id="personalData">
 		                                <div class="row">
 		                                    <h4 class="info-text"> <b>Prosimy o podanie następujących informacji:</b></h4>
 		                                    <div class="col-sm-6">

@@ -22,15 +22,15 @@
 		                        	</h3>
 		                    	</div>
 								<div class="wizard-navigation">
-									<ul>
-			                            <li><a href="#login" data-toggle="tab">Logowanie</a></li>
-			                            <li><a href="#">Terminy</a></li>
-			                            <li><a href="#">Dane osobowe</a></li>
+									<ul id="navTab">
+			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
+			                            <li><a>Terminy</a></li>
+			                            <li><a>Dane osobowe</a></li>
 			                        </ul>
 								</div>
 
 		                        <div class="tab-content">
-		                            <div class="tab-pane" id="login">
+		                            <div class="tab-pane active" id="login">
 		                            	<div class="row">
 
 		                            		{if !isset($allowLogin) OR !$allowLogin}
