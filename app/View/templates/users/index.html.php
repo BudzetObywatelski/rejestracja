@@ -118,6 +118,7 @@
 		            console.log(response)
 		            if(response.code == 200){
 		            	toastr.success(response.response);
+		            	location.reload();
 		            }
 		        },
 		        error:function(response){

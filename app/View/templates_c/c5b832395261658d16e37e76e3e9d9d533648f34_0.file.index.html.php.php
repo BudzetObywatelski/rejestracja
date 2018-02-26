@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-23 13:16:25
+/* Smarty version 3.1.31, created on 2018-02-26 13:16:02
   from "D:\xampp\htdocs\rejestracja\app\View\templates\users\index.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a900619cf7e94_03793279',
+  'unifunc' => 'content_5a93fa82e91c72_67266757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c5b832395261658d16e37e76e3e9d9d533648f34' => 
     array (
       0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\index.html.php',
-      1 => 1519388169,
+      1 => 1519647358,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a900619cf7e94_03793279 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a93fa82e91c72_67266757 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -49,15 +49,15 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                        	</h3>
 		                    	</div>
 								<div class="wizard-navigation">
-									<ul>
-			                            <li><a href="#login" data-toggle="tab">Logowanie</a></li>
-			                            <li><a href="#">Terminy</a></li>
-			                            <li><a href="#">Dane osobowe</a></li>
+									<ul id="navTab">
+			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
+			                            <li><a>Terminy</a></li>
+			                            <li><a>Dane osobowe</a></li>
 			                        </ul>
 								</div>
 
 		                        <div class="tab-content">
-		                            <div class="tab-pane" id="login">
+		                            <div class="tab-pane active" id="login">
 		                            	<div class="row">
 
 		                            		<?php if (!isset($_smarty_tpl->tpl_vars['allowLogin']->value) || !$_smarty_tpl->tpl_vars['allowLogin']->value) {?>
@@ -147,6 +147,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		            console.log(response)
 		            if(response.code == 200){
 		            	toastr.success(response.response);
+		            	location.reload();
 		            }
 		        },
 		        error:function(response){
