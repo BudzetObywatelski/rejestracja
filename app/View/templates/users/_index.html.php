@@ -1,41 +1,7 @@
-<?php
-/* Smarty version 3.1.31, created on 2018-02-27 12:02:10
-  from "D:\xampp\htdocs\rejestracja\app\View\templates\users\index.html.php" */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.31',
-  'unifunc' => 'content_5a953ab2b852b4_91088436',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'c5b832395261658d16e37e76e3e9d9d533648f34' => 
-    array (
-      0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\index.html.php',
-      1 => 1519729329,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-    'file:../header.html.php' => 1,
-    'file:../footer.html.php' => 1,
-  ),
-),false)) {
-function content_5a953ab2b852b4_91088436 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
+{include file="../header.html.php"}
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-	<a href="#">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo2.png');?>
-">
-	            </div>
-	        </div>
-	    </a>
+
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -43,7 +9,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		        	
 		            <!-- Wizard container -->
 		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="blue" id="wizard">
+		                <div class="card wizard-card" data-color="red" id="wizard">
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
@@ -51,8 +17,6 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
-		                    		<img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo.png');?>
-">
 		                        	<h3 class="wizard-title">
 		                        		Panel obywatelski
 		                        	</h3>
@@ -60,6 +24,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 								<div class="wizard-navigation">
 									<ul id="navTab">
 			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
+			                            <li><a>Terminy</a></li>
 			                            <li><a>Dane osobowe</a></li>
 			                        </ul>
 								</div>
@@ -68,7 +33,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                            <div class="tab-pane active" id="login">
 		                            	<div class="row">
 
-		                            		<?php if (!isset($_smarty_tpl->tpl_vars['allowLogin']->value) || !$_smarty_tpl->tpl_vars['allowLogin']->value) {?>
+		                            		{if !isset($allowLogin) OR !$allowLogin}
 
 			                            	<div class="col-sm-12">
 			                            		<div class="time-info">
@@ -83,7 +48,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 												</div>
 			                            	</div>
 
-			                            	<?php } else { ?>
+			                            	{else}
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
@@ -109,7 +74,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 			                                	</div>
 			                                </div>
 
-			                                <div class="col-sm-12">
+			                                <div class="tab-content col-sm-12">
 					                            <div class="tab-pane active" id="schedule">
 													<div class="important-checkbox">
 														<div class="checkbox">
@@ -120,32 +85,16 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 													    </div>
 													</div>
 					                                <div class="row">
-					                                    <div class="col-sm-10">
-					                                        <div class="col-sm-4">
-					                                        	<ul class="dl-list">
-						                                        	<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['deadlines']->value, 'deadline');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['deadline']->value) {
-?>
-						                                            <li>
-																	    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
-
-																    </li>
-																    <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-?>
-
-																</ul>
+					                                    <div class="col-sm-12">
+					                                        <div class="col-sm-12 dl-list">
+					                                        	
 					                                        </div>
 					                                    </div>
 					                                </div>
 					                            </div>
 					                        </div>
 
-			                                <?php }?>
+			                                {/if}
 		                            	</div>
 		                            </div>
 		                        </div>
@@ -169,19 +118,16 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 		</div> <!--  big container xd -->
 	</div>
 
-	<?php echo '<script'; ?>
- type="text/javascript">
+	<script type="text/javascript">
 		moment.locale('pl');
 
-		function login(bday, pass, dl){
+		function login(bday, pass){
 		    $.ajax({
 		        method:'POST',
-		        url:'<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl("users/login");?>
-',
+		        url:'{$router->makeUrl("users/login")}',
 		        data: {
 		            bday: bday,
-		            pass_code: pass,
-		            deadlines: dl
+		            pass_code: pass
 		        },
 		        cache: false,
 		        success:function(response){
@@ -199,29 +145,43 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 		    })
 		}
 
+		function printDeadlines(){
+			var print = '<span>'
+		    dlAr = {$deadlines|json_encode}
+		    $.each(dlAr, function(key, date){
+		    	if(key < dlAr.length-1)
+		    		print += moment(date.value).format('Do MMMM YYYY').replace('.', '')+', ';
+		    	else
+		    		print += moment(date.value).format('Do MMMM YYYY').replace('.', '');
+		    })
+
+		    print += '</span>'
+
+		    $('.dl-list').html(print);
+		}
+
+		printDeadlines();
+
 		$( document ).ready(function() {
-	    	var deadlines;
-			var bday_cred;
-	    	var pass_cred;
+			var canGo;
+			var deadlines = $('form').find('input[type="checkbox"]');
+			var bday_cred = $('form').find('input[name="bday"]').val();
+	    	var pass_cred = $('form').find('input[name="pass"]').val();
 
 			$('.loading').remove();
-
 		    $('.login-button').click(function(){
-		    	deadlines = $('form').find('input[type="checkbox"]').prop('checked');
-				bday_cred = $('form').find('input[name="bday"]').val();
-		    	pass_cred = $('form').find('input[name="pass"]').val();
+		    	canGo = true;
 
-				login(bday_cred, pass_cred, deadlines);
-		    })
-
-		    $.each($('.dl-list').find('li'), function(key, value){
-		    	$(value).html(moment($(value).html().replace(/\s/g, '')).format('Do MMMM YYYY').replace('.', ''));
+				if(!$(deadlines).prop('checked')){
+					toastr.error('Nie zostały zaznaczone wszystkie terminy!')
+					canGo = false;
+				}
+				if(canGo){
+					login(bday_cred, pass_cred);
+				}
 		    })
 		});
-	<?php echo '</script'; ?>
->
+	</script>
 
 
-<?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-}
-}
+{include file="../footer.html.php"}

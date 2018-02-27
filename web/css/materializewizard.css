@@ -1845,10 +1845,10 @@ fieldset[disabled] .checkbox, fieldset[disabled] .checkbox input[type=checkbox],
     z-index: 3;
 }
 .logo-container .logo{
-    overflow: hidden;
-    border-radius: 50%;
-    border: 1px solid #333333;
-    width: 60px;
+    /* overflow: hidden; */
+    /* border-radius: 50%; */
+    /* border: 1px solid #333333; */
+    width: 120px;
     float: left;
 }
 .logo-container .brand{
@@ -2000,10 +2000,10 @@ body{
 }
 
 .logo-container .logo{
-    overflow: hidden;
-    border-radius: 50%;
-    border: 1px solid #333333;
-    width: 50px;
+    /* overflow: hidden; */
+    /* border-radius: 50%; */
+    /* border: 1px solid #333333; */
+    width: 120px;
     float: left;
 }
 

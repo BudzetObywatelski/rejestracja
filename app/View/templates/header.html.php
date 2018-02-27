@@ -23,5 +23,7 @@
     <link href="{$router->publicWeb('css/toastr_custom.css')}" rel="stylesheet" type="text/css" />
     <script src="{$router->publicWeb('js/toastr.min.js')}"></script>
 
+    <script src="{$router->publicWeb('js/moment.js')}"></script>
+
 </head>
 <body>

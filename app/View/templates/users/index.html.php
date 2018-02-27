@@ -1,7 +1,13 @@
 {include file="../header.html.php"}
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-
+	<a href="#">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="{$router->publicWeb('images/logo2.png')}">
+	            </div>
+	        </div>
+	    </a>
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -9,7 +15,7 @@
 		        	
 		            <!-- Wizard container -->
 		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="red" id="wizard">
+		                <div class="card wizard-card" data-color="blue" id="wizard">
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
@@ -24,7 +30,6 @@
 								<div class="wizard-navigation">
 									<ul id="navTab">
 			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
-			                            <li><a>Terminy</a></li>
 			                            <li><a>Dane osobowe</a></li>
 			                        </ul>
 								</div>
@@ -49,7 +54,6 @@
 			                            	</div>
 
 			                            	{else}
-
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
@@ -75,14 +79,33 @@
 			                                	</div>
 			                                </div>
 
-			                                {/if}
+			                                <div class="col-sm-12">
+					                            <div class="tab-pane active" id="schedule">
+													<div class="important-checkbox">
+														<div class="checkbox">
+														    <label>
+															    <input type="checkbox" name="">
+														    </label>
+														    <span>Oświadczam, że mogę wziąć udział we wszystkich spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach:</span>
+													    </div>
+													</div>
+					                                <div class="row">
+					                                    <div class="col-sm-10">
+					                                        <div class="col-sm-4">
+					                                        	<ul class="dl-list">
+						                                        	{foreach from=$deadlines item=deadline}
+						                                            <li>
+																	    {$deadline.value}
+																    </li>
+																    {/foreach}
+																</ul>
+					                                        </div>
+					                                    </div>
+					                                </div>
+					                            </div>
+					                        </div>
 
-		                                	<div class="col-sm-12">
-		                                		<div class="under-text">
-			                                		<span class="info-text">
-			                                		Dla zapewnienia bezstronności i&nbsp;wiarygodności panelu obywatelskiego, uprzejmie prosimy, aby nie rejestrowali się radni miejscy, dyrektorzy wydziałów z&nbsp;Urzędu Miasta Lublin oraz osoby, które w&nbsp;bezpośredni sposób są związane z&nbps;tematyką panelu (na przykład są pertami w&nbsp;danej dziedzinie).</span>
-			                                	</div>
-		                                	</div>
+			                                {/if}
 		                            	</div>
 		                            </div>
 		                        </div>
@@ -107,13 +130,16 @@
 	</div>
 
 	<script type="text/javascript">
-		function login(bday, pass){
+		moment.locale('pl');
+
+		function login(bday, pass, dl){
 		    $.ajax({
 		        method:'POST',
 		        url:'{$router->makeUrl("users/login")}',
 		        data: {
 		            bday: bday,
-		            pass_code: pass
+		            pass_code: pass,
+		            deadlines: dl
 		        },
 		        cache: false,
 		        success:function(response){
@@ -132,11 +158,22 @@
 		}
 
 		$( document ).ready(function() {
+	    	var deadlines;
+			var bday_cred;
+	    	var pass_cred;
+
 			$('.loading').remove();
+
 		    $('.login-button').click(function(){
-		    	var bday_cred = $('form').find('input[name="bday"]').val();
-		    	var pass_cred = $('form').find('input[name="pass"]').val();
-		        login(bday_cred, pass_cred);
+		    	deadlines = $('form').find('input[type="checkbox"]').prop('checked');
+				bday_cred = $('form').find('input[name="bday"]').val();
+		    	pass_cred = $('form').find('input[name="pass"]').val();
+
+				login(bday_cred, pass_cred, deadlines);
+		    })
+
+		    $.each($('.dl-list').find('li'), function(key, value){
+		    	$(value).html(moment($(value).html().replace(/\s/g, '')).format('Do MMMM YYYY').replace('.', ''));
 		    })
 		});
 	</script>
