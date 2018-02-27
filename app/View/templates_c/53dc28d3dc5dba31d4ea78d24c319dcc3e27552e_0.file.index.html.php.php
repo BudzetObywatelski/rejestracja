@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-27 10:19:22
+/* Smarty version 3.1.31, created on 2018-02-27 12:12:27
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/index.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a95229a494ed9_05388829',
+  'unifunc' => 'content_5a953d1b55b9d1_98718758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53dc28d3dc5dba31d4ea78d24c319dcc3e27552e' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/index.html.php',
-      1 => 1519723159,
+      1 => 1519729945,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,20 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a95229a494ed9_05388829 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a953d1b55b9d1_98718758 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-
+	<a href="#">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo2.png');?>
+">
+	            </div>
+	        </div>
+	    </a>
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -36,7 +43,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		        	
 		            <!-- Wizard container -->
 		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="red" id="wizard">
+		                <div class="card wizard-card" data-color="blue" id="wizard">
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
@@ -51,7 +58,6 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 								<div class="wizard-navigation">
 									<ul id="navTab">
 			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
-			                            <li><a>Terminy</a></li>
 			                            <li><a>Dane osobowe</a></li>
 			                        </ul>
 								</div>
@@ -76,7 +82,6 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 			                            	</div>
 
 			                            	<?php } else { ?>
-
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
@@ -102,20 +107,49 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 			                                	</div>
 			                                </div>
 
-			                                <?php }?>
+			                                <div class="col-sm-12">
+					                            <div class="tab-pane active" id="schedule">
+													<div class="important-checkbox">
+														<div class="checkbox">
+														    <label>
+															    <input type="checkbox" name="">
+														    </label>
+														    <span>Oświadczam, że mogę wziąć udział we wszystkich spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach:</span>
+													    </div>
+													</div>
+					                                <div class="row">
+					                                    <div class="col-sm-10">
+					                                        <div class="col-sm-4">
+					                                        	<ul class="dl-list">
+						                                        	<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['deadlines']->value, 'deadline');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['deadline']->value) {
+?>
+						                                            <li>
+																	    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
 
-		                                	<div class="col-sm-12">
-		                                		<div class="under-text">
-			                                		<span class="info-text">
-			                                		Dla zapewnienia bezstronności i&nbsp;wiarygodności panelu obywatelskiego, uprzejmie prosimy, aby nie rejestrowali się radni miejscy, dyrektorzy wydziałów z&nbsp;Urzędu Miasta Lublin oraz osoby, które w&nbsp;bezpośredni sposób są związane z&nbps;tematyką panelu (na przykład są pertami w&nbsp;danej dziedzinie).</span>
-			                                	</div>
-		                                	</div>
+																    </li>
+																    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+?>
+
+																</ul>
+					                                        </div>
+					                                    </div>
+					                                </div>
+					                            </div>
+					                        </div>
+
+			                                <?php }?>
 		                            	</div>
 		                            </div>
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="login"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="Zaloguj"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
@@ -130,19 +164,22 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		            </div> <!-- wizard container -->
 		        </div>
 	    	</div> <!-- row -->
-		</div> <!--  big container -->
+		</div> <!--  big container xd -->
 	</div>
 
 	<?php echo '<script'; ?>
  type="text/javascript">
-		function login(bday, pass){
+		moment.locale('pl');
+
+		function login(bday, pass, dl){
 		    $.ajax({
 		        method:'POST',
 		        url:'<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl("users/login");?>
 ',
 		        data: {
 		            bday: bday,
-		            pass_code: pass
+		            pass_code: pass,
+		            deadlines: dl
 		        },
 		        cache: false,
 		        success:function(response){
@@ -161,11 +198,22 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		}
 
 		$( document ).ready(function() {
+	    	var deadlines;
+			var bday_cred;
+	    	var pass_cred;
+
 			$('.loading').remove();
+
 		    $('.login-button').click(function(){
-		    	var bday_cred = $('form').find('input[name="bday"]').val();
-		    	var pass_cred = $('form').find('input[name="pass"]').val();
-		        login(bday_cred, pass_cred);
+		    	deadlines = $('form').find('input[type="checkbox"]').prop('checked');
+				bday_cred = $('form').find('input[name="bday"]').val();
+		    	pass_cred = $('form').find('input[name="pass"]').val();
+
+				login(bday_cred, pass_cred, deadlines);
+		    })
+
+		    $.each($('.dl-list').find('li'), function(key, value){
+		    	$(value).html(moment($(value).html().replace(/\s/g, '')).format('Do MMMM YYYY').replace('.', ''));
 		    })
 		});
 	<?php echo '</script'; ?>

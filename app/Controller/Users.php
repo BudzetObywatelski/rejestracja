@@ -24,7 +24,7 @@ class UsersController extends \Controller\Controller
 			$UsersModel = $this->loadModel('Users');
 			$getUserById = $UsersModel->getUserById($sessionId);
 			if($getUserById['return']){
-				return $this->router->redirect('panel,panel/deadlines');
+				return $this->router->redirect('panel,panel/fill');
 			}
 		}
 	}
@@ -68,7 +68,7 @@ class UsersController extends \Controller\Controller
 					$errors['pass_code'] = 'Nie podano kodu identyfikacyjnego.'; 
 				}
 
-				if(!isset($post['deadlines']) OR empty($post['deadlines']) OR $post['deadlines'] != true){
+				if(!isset($post['deadlines']) OR empty($post['deadlines']) OR $post['deadlines'] != "true"){
 					$errors['deadlines'] = 'Nie zaakceptowano uczestnictwa we wszystkich terminach.'; 
 				}
 
