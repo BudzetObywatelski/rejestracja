@@ -381,7 +381,7 @@ h2.title {
   font-size: 12px;
   text-transform: uppercase;
   -webkit-font-smoothing: subpixel-antialiased;
-  background-color: #00bcd4;
+  background-color: #045ba4;
   top: -4px;
   left: 0px;
   border-radius: 4px;
@@ -391,23 +391,23 @@ h2.title {
   box-shadow: 0 16px 26px -10px rgba(0, 188, 212, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2);
 }
 .wizard-card[data-color="blue"] .picture:hover {
-  border-color: #00bcd4;
+  border-color: #045ba4;
 }
 .wizard-card[data-color="blue"] .choice:hover .icon, .wizard-card[data-color="blue"] .choice.active .icon {
-  border-color: #00bcd4;
-  color: #00bcd4;
+  border-color: #045ba4;
+  color: #045ba4;
 }
 .wizard-card[data-color="blue"] .form-group .form-control {
   background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .wizard-card[data-color="blue"] .checkbox input[type=checkbox]:checked + .checkbox-material .check {
-  background-color: #00bcd4;
+  background-color: #045ba4;
 }
 .wizard-card[data-color="blue"] .radio input[type=radio]:checked ~ .check {
-  background-color: #00bcd4;
+  background-color: #045ba4;
 }
 .wizard-card[data-color="blue"] .radio input[type=radio]:checked ~ .circle {
-  border-color: #00bcd4;
+  border-color: #045ba4;
 }
 .wizard-card[data-color="orange"] .moving-tab {
   position: absolute;
