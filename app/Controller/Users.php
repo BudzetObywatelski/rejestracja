@@ -39,6 +39,16 @@ class UsersController extends \Controller\Controller
 
 		$View->assign('registerConfig', $registerConfig);
 		$View->assign('allowLogin', $allowLogin);
+		
+		$deadlinesList = array();
+
+		$Deadlines = $this->loadModel('Deadlines');
+		$getDeadlines = $Deadlines->getDeadlines();
+		if($getDeadlines['return']){
+			$deadlinesList = $getDeadlines['data'];
+		}
+
+		$View->assign('deadlines', $deadlinesList);
 		$View->render('users/index');
 	}
 
@@ -87,10 +97,5 @@ class UsersController extends \Controller\Controller
 				break;
 		}
 		return Response::renderJSON(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
-	}
-
-	public function logout(){
-		$this->baseClass->session->end();
-		return $this->router->redirect('users/index');
 	}
 }

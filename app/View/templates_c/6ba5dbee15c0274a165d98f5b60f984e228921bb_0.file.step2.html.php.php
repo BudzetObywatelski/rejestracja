@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-26 13:09:34
+/* Smarty version 3.1.31, created on 2018-02-26 14:35:57
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a93f8fea97f15_70985115',
+  'unifunc' => 'content_5a940d3d9a9672_43637082',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6ba5dbee15c0274a165d98f5b60f984e228921bb' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php',
-      1 => 1519646847,
+      1 => 1519652156,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a93f8fea97f15_70985115 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a940d3d9a9672_43637082 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -68,7 +68,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['deadline']->value) {
 ?>
 		                                            <div class="checkbox">
 													    <label>
-														    <input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['dealine']->value['id'];?>
+														    <input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['deadline']->value['id'];?>
 ">
 													    </label>
 													    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
@@ -87,7 +87,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd' name='next' value='Dalej' />
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd check-checked' name='next' value='Dalej' />
 	                                </div>
 	                                <div class="pull-left">
 	                                    <a href="<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl('panel,panel/logout');?>
@@ -116,7 +116,22 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 	<?php echo '<script'; ?>
  type="text/javascript">
 		$( document ).ready(function() {
+			var canGo;
+			var deadlines = $('form').find('input[type="checkbox"]');
 			$('.loading').remove();
+			$('.check-checked').click(function(){
+				canGo = true;
+				$.each(deadlines, function(key, value){
+					if(!$(value).prop('checked')){
+						toastr.error('Nie zostały zaznaczone wszystkie terminy!')
+						canGo = false;
+						return false
+					}
+				});
+				if(canGo){
+					window.location.replace("#");
+				}
+			});
 		});
 	<?php echo '</script'; ?>
 >
