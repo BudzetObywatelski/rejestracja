@@ -2,12 +2,12 @@
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 	<a href="#">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="{$router->publicWeb('images/logo2.png')}">
-	            </div>
-	        </div>
-	    </a>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="{$router->publicWeb('images/logo2.png')}">
+            </div>
+        </div>
+    </a>
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">

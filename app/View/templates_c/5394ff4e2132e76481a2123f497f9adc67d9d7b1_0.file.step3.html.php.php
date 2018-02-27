@@ -1,9 +1,37 @@
-{include file="../header.html.php"}
+<?php
+/* Smarty version 3.1.31, created on 2018-02-27 12:55:47
+  from "D:\xampp\htdocs\rejestracja\app\View\templates\users\step3.html.php" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.31',
+  'unifunc' => 'content_5a9547438821a3_03567496',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '5394ff4e2132e76481a2123f497f9adc67d9d7b1' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\step3.html.php',
+      1 => 1519732546,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:../header.html.php' => 1,
+    'file:../footer.html.php' => 1,
+  ),
+),false)) {
+function content_5a9547438821a3_03567496 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
 	<a href="#">
         <div class="logo-container">
             <div class="logo">
-                <img src="{$router->publicWeb('images/logo2.png')}">
+                <img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo2.png');?>
+">
             </div>
         </div>
     </a>
@@ -143,11 +171,12 @@
 		</div> <!--  big container -->
 	</div>
 
-	<script type="text/javascript">
+	<?php echo '<script'; ?>
+ type="text/javascript">
 		function validateEmail($email) {
-			{literal}
+			
 		  	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		  	{/literal}
+		  	
 		  	return emailReg.test( $email );
 		}
 
@@ -159,7 +188,7 @@
 			customNeed = $('form').find('textarea[name="custom-need"]').val()
 			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked')
 
-			{literal}
+			
 			if(email == '' || !validateEmail(email))
 				return {return:false, msg:'Nie podano email-u lub jest niepoprawny!'}
 
@@ -176,7 +205,7 @@
 				return {return:false, msg:'Nie wyrażono zgody na przetwarzanie danych osobowych!'}
 			
 			return {return:true}
-			{/literal}
+			
 		}
 
 		$( document ).ready(function() {
@@ -198,5 +227,8 @@
 					toastr.error(response.msg)
 			});
 		});
-	</script>
-{include file="../footer.html.php"}
+	<?php echo '</script'; ?>
+>
+<?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}
