@@ -37,11 +37,13 @@
 
 			                            	<div class="col-sm-12">
 			                            		<div class="time-info">
-													<h5><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim!</b> Aby wziąć
-													udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o
-													wypełnienie zgłoszenia.</h5>
-													<p class="text-center">Rejestracja przez internet jest otwarta do …..marca 2018 r., do godz. 23:59.<br/>
-													Więcej informacji o panelu obywatelskim w&nbsp;Lublinie jest dostępnych <a href="#">tutaj.</a>
+													<h5 class="text-center"><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim<br/> „Co zrobić aby oddychać czystym powietrzem w&nbsp;Lublinie”!</b></h5>
+
+													<p>Aby wziąć udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o&nbsp;wypełnienie zgłoszenia. W&nbsp;tym celu prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z kodem identyfikacyjnym.<br/>
+													Rejestracja przez Internet jest otwarta do 12 marca 2018 r., do godz. 23:59.<br/>
+													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="#">www.strona.pl</a>.<br/>
+													Kontakt telefoniczny: 123 456 789<br/>
+													Email: xd@xd.pl
 													</p>
 												</div>
 			                            	</div>
@@ -51,23 +53,23 @@
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
-													<div class="input-group">
-														<span class="input-group-addon">
-															<i class="fas fa-user"></i>
-														</span>
-														<div class="form-group label-floating">
-				                                          	<label class="control-label">Imie, tylko pierwsze imię, bez nazwiska</label>
-				                                          	<input name="name" type="text" class="form-control" autocomplete="off">
-				                                        </div>
-													</div>
-
-													<div class="input-group">
+		                                			<div class="input-group">
 														<span class="input-group-addon">
 															<i class="fas fa-lock"></i>
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
 				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
+				                                        </div>
+													</div>
+
+													<div class="input-group">
+														<span class="input-group-addon">
+															<i class="fas fa-birthday-cake"></i>
+														</span>
+														<div class="form-group label-floating">
+				                                          	<label class="control-label">Data urodzenia</label>
+				                                          	<input name="bday" type="date" class="form-control" value="2000-01-01">
 				                                        </div>
 													</div>
 			                                	</div>
@@ -105,12 +107,12 @@
 	</div>
 
 	<script type="text/javascript">
-		function login(login, pass){
+		function login(bday, pass){
 		    $.ajax({
 		        method:'POST',
 		        url:'{$router->makeUrl("users/login")}',
 		        data: {
-		            firstname: login,
+		            firstname: bday,
 		            pass_code: pass
 		        },
 		        cache: false,
@@ -132,9 +134,9 @@
 		$( document ).ready(function() {
 			$('.loading').remove();
 		    $('.login-button').click(function(){
-		    	var login_cred = $('form').find('input[name="name"]').val();
+		    	var bday_cred = $('form').find('input[name="bday"]').val();
 		    	var pass_cred = $('form').find('input[name="pass"]').val();
-		        login(login_cred, pass_cred);
+		        login(bday_cred, pass_cred);
 		    })
 		});
 	</script>

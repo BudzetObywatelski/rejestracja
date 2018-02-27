@@ -30,18 +30,26 @@
 
 		                        <div class="tab-content">
 		                            <div class="tab-pane active" id="schedule">
-		                                <h4 class="info-text"><h5><b>Potwierdzenie możliwości wzięcia udziału w&nbsp;panelu obywatelskim</b></h5> Mogę wziąć udział w&nbsp;spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach </h4>
+		                                <div class="info-text"><h5><b>Potwierdzenie możliwości wzięcia udziału w&nbsp;panelu obywatelskim</b></h5>
+										</div>
+										<div class="important-checkbox">
+											<div class="checkbox">
+											    <label>
+												    <input type="checkbox" name="">
+											    </label>
+											    Oświadczam, że mogę wziąć udział we wszystkich spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach:
+										    </div>
+										</div>
 		                                <div class="row">
-		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4 important-checkboxes">
-		                                        	{foreach from=$deadlines item=deadline}
-		                                            <div class="checkbox">
-													    <label>
-														    <input type="checkbox" name="{$deadline.id}">
-													    </label>
-													    {$deadline.value}
-												    </div>
-												    {/foreach}
+		                                    <div class="col-sm-10">
+		                                        <div class="col-sm-4">
+		                                        	<ul>
+			                                        	{foreach from=$deadlines item=deadline}
+			                                            <li>
+														    {$deadline.value}
+													    </li>
+													    {/foreach}
+													</ul>
 		                                        </div>
 		                                    </div>
 		                                </div>
@@ -81,13 +89,10 @@
 			$('.loading').remove();
 			$('.check-checked').click(function(){
 				canGo = true;
-				$.each(deadlines, function(key, value){
-					if(!$(value).prop('checked')){
-						toastr.error('Nie zostały zaznaczone wszystkie terminy!')
-						canGo = false;
-						return false
-					}
-				});
+				if(!$(deadlines).prop('checked')){
+					toastr.error('Nie zostały zaznaczone wszystkie terminy!')
+					canGo = false;
+				}
 				if(canGo){
 					window.location.replace("#");
 				}

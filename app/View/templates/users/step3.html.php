@@ -66,15 +66,6 @@
 											    </div>
 		                                    </div>
 		                                    <div class="col-sm-6">
-		                                    	<div class="input-group">
-													<span class="input-group-addon">
-														<i class="fas fa-birthday-cake"></i>
-													</span>
-													<div class="form-group label-floating">
-			                                          	<label class="control-label">Data urodzenia</label>
-			                                          	<input name="bday" type="date" class="form-control" value="2000-01-01">
-			                                        </div>
-												</div>
 		                                    	<label>Wykształcenie</label>
 		                                    	<div class="radio">
 												    <label>
@@ -108,6 +99,13 @@
 												    </label>
 												    Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby organizacji panelu obywatelskiego w&nbsp;Lublinie, zgodnie z&nbps;ustawą xxyyzz
 											    </div>
+											    <div class="under-text">
+			                                		<span class="info-text">
+			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>
+												    Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>
+												    Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>
+												    Podanie danych osobowych jest dobrowolne.</span>
+			                                	</div>
 		                                    </div>
 		                                </div>
 		                            </div>

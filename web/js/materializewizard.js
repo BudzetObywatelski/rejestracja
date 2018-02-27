@@ -503,7 +503,7 @@ $(window).resize(function(){
 });
 
 function refreshAnimation($wizard, index){
-    total_steps = $wizard.find('li').length;
+    total_steps = $('#navTab').children().length;
     move_distance = $wizard.width() / total_steps;
     step_width = move_distance;
     $.each($('#navTab').children(), function(key, value){
