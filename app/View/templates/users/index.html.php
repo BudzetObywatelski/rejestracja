@@ -103,7 +103,7 @@
 		            </div> <!-- wizard container -->
 		        </div>
 	    	</div> <!-- row -->
-		</div> <!--  big container -->
+		</div> <!--  big container xd -->
 	</div>
 
 	<script type="text/javascript">
