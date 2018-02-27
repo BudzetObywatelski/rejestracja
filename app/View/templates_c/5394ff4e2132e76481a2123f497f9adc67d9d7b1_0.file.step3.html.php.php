@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-27 12:55:47
+/* Smarty version 3.1.31, created on 2018-02-27 13:38:56
   from "D:\xampp\htdocs\rejestracja\app\View\templates\users\step3.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a9547438821a3_03567496',
+  'unifunc' => 'content_5a955160f1a589_07572547',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5394ff4e2132e76481a2123f497f9adc67d9d7b1' => 
     array (
       0 => 'D:\\xampp\\htdocs\\rejestracja\\app\\View\\templates\\users\\step3.html.php',
-      1 => 1519732546,
+      1 => 1519735136,
       2 => 'file',
     ),
   ),
@@ -22,19 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a9547438821a3_03567496 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a955160f1a589_07572547 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-	<a href="#">
-        <div class="logo-container">
-            <div class="logo">
-                <img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo2.png');?>
-">
-            </div>
-        </div>
-    </a>
+
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -50,6 +43,8 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
+		                    		<img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo.png');?>
+">
 		                        	<h3 class="wizard-title">
 		                        		Panel obywatelski
 		                        	</h3>

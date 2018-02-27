@@ -1,13 +1,6 @@
 {include file="../header.html.php"}
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-	<a href="#">
-        <div class="logo-container">
-            <div class="logo">
-                <img src="{$router->publicWeb('images/logo2.png')}">
-            </div>
-        </div>
-    </a>
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -23,6 +16,7 @@
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
+		                    		<img src="{$router->publicWeb('images/logo.png')}">
 		                        	<h3 class="wizard-title">
 		                        		Panel obywatelski
 		                        	</h3>
@@ -111,7 +105,7 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="Zaloguj"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="login"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
