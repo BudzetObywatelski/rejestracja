@@ -58,14 +58,18 @@ class UsersController extends \Controller\Controller
 			case 'POST':
 				$post = $_POST;
 				$errors = array();
-				if (!isset($post['firstname']) OR empty($post['firstname']))
+				if (!isset($post['bday']) OR empty($post['bday']))
 				{
-					$errors['firstname'] = 'Nie podano imienia.';
+					$errors['bday'] = 'Nie podano daty urodzenia.';
 				}
 
 				if (!isset($post['pass_code']) OR empty($post['pass_code']))
 				{
 					$errors['pass_code'] = 'Nie podano kodu identyfikacyjnego.'; 
+				}
+
+				if(!isset($post['deadlines']) OR empty($post['deadlines']) OR $post['deadlines'] != true){
+					$errors['deadlines'] = 'Nie zaakceptowano uczestnictwa we wszystkich terminach.'; 
 				}
 
 				if(!empty($errors)){
@@ -83,12 +87,12 @@ class UsersController extends \Controller\Controller
 
 				$UsersModel = $this->loadModel('Users');
 
-				$firstname = htmlspecialchars($post['firstname']);
+				$bday = htmlspecialchars($post['bday']);
 				$pass_code = htmlspecialchars($post['pass_code']);
 
-				$getUserByPasses = $UsersModel->getUserByPasses($firstname, $pass_code);
+				$getUserByPasses = $UsersModel->getUserByPasses($bday, $pass_code);
 				if(!$getUserByPasses['return']){
-					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => array('Nie instnieje imię z tym koden identyfikacyjnym.'), 'data' => array()))->status(400);
+					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => array('Nie instnieje data urodzenia z tym koden identyfikacyjnym.'), 'data' => array()))->status(400);
 				}
 
 				$this->baseClass->session->set('id', $getUserByPasses['data']['id']);

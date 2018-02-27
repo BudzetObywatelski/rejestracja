@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-26 14:35:57
+/* Smarty version 3.1.31, created on 2018-02-27 10:19:24
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a940d3d9a9672_43637082',
+  'unifunc' => 'content_5a95229ca787e2_49457259',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6ba5dbee15c0274a165d98f5b60f984e228921bb' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step2.html.php',
-      1 => 1519652156,
+      1 => 1519722721,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a940d3d9a9672_43637082 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a95229ca787e2_49457259 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -57,29 +57,36 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 
 		                        <div class="tab-content">
 		                            <div class="tab-pane active" id="schedule">
-		                                <h4 class="info-text"><h5><b>Potwierdzenie możliwości wzięcia udziału w&nbsp;panelu obywatelskim</b></h5> Mogę wziąć udział w&nbsp;spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach </h4>
+		                                <div class="info-text"><h5><b>Potwierdzenie możliwości wzięcia udziału w&nbsp;panelu obywatelskim</b></h5>
+										</div>
+										<div class="important-checkbox">
+											<div class="checkbox">
+											    <label>
+												    <input type="checkbox" name="">
+											    </label>
+											    Oświadczam, że mogę wziąć udział we wszystkich spotkaniach panelu obywatelskiego, które odbędą się w&nbsp;następujących terminach:
+										    </div>
+										</div>
 		                                <div class="row">
-		                                    <div class="col-sm-10 col-sm-offset-1">
-		                                        <div class="col-sm-4 important-checkboxes">
-		                                        	<?php
+		                                    <div class="col-sm-10">
+		                                        <div class="col-sm-4">
+		                                        	<ul>
+			                                        	<?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['deadlines']->value, 'deadline');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['deadline']->value) {
 ?>
-		                                            <div class="checkbox">
-													    <label>
-														    <input type="checkbox" name="<?php echo $_smarty_tpl->tpl_vars['deadline']->value['id'];?>
-">
-													    </label>
-													    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
+			                                            <li>
+														    <?php echo $_smarty_tpl->tpl_vars['deadline']->value['value'];?>
 
-												    </div>
-												    <?php
+													    </li>
+													    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 ?>
 
+													</ul>
 		                                        </div>
 		                                    </div>
 		                                </div>
@@ -121,13 +128,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 			$('.loading').remove();
 			$('.check-checked').click(function(){
 				canGo = true;
-				$.each(deadlines, function(key, value){
-					if(!$(value).prop('checked')){
-						toastr.error('Nie zostały zaznaczone wszystkie terminy!')
-						canGo = false;
-						return false
-					}
-				});
+				if(!$(deadlines).prop('checked')){
+					toastr.error('Nie zostały zaznaczone wszystkie terminy!')
+					canGo = false;
+				}
 				if(canGo){
 					window.location.replace("#");
 				}

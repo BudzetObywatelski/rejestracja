@@ -112,7 +112,7 @@
 		        method:'POST',
 		        url:'{$router->makeUrl("users/login")}',
 		        data: {
-		            firstname: bday,
+		            bday: bday,
 		            pass_code: pass
 		        },
 		        cache: false,

@@ -17,9 +17,9 @@ namespace Model;
 class UsersModel extends \Model\Model
 {
 
-    public function getUserByPasses($firstname, $pass_code)
+    public function getUserByPasses($bday, $pass_code)
     {
-        $result = $this->baseClass->db->select('users', '*', array('firstname' => $firstname, 'pass_code' => $pass_code))->result();
+        $result = $this->baseClass->db->select('users', '*', array('bday' => $bday, 'pass_code' => $pass_code))->result();
 
         if (!isset($result['id']))
         {
