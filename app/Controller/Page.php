@@ -1,9 +1,22 @@
 <?php
 /**
- * Project Name
- * Copyright (c) Firstname Lastname
- *
- * @license http://yourLicenceUrl/ (Licence Name)
+ * Rejestracja PanelHelper
+ * The MIT License (MIT)
+ * 
+ * Copyright (c) 2018 CityCore.pro
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
+ * files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, 
+ * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is 
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN 
+ * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+ * WHETHER IN AN ACTION OF CONTRACT,  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
 namespace Controller;
@@ -13,19 +26,11 @@ use Dframe\Router\Response;
 /**
  * Here is a description of what this file is for.
  *
- * @author First Name <adres@email>
+ * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */
 
 class PageController extends \Controller\Controller
 {
-    /** 
-     * initial function call working like __construct
-     */
-    public function init()
-    {
-
-    }
-
     public function error()
     {
         $view = $this->loadView('Index');
@@ -39,34 +44,11 @@ class PageController extends \Controller\Controller
         
     }
 
-    public function index() 
-    {
-        $view = $this->loadView('Index');
-        $view->assign('contents', 'Example assign');
-
-        return $view->render('index');
-    }
-
-
-    public function responseExample() 
-    {
-        $view = $this->loadView('Index');
-        $view->assign('contents', 'Example assign');
-
-        return Response::create($view->fetch('index'));
-    }
-
-
-    public function json() 
-    {
-        return Response::renderJSON(array('return' => '1')); 
-    }
-
     /**
      * Catch-all method for requests that can't be matched.
      *
-     * @param  string    $method
-     * @param  array     $parameters
+     * @param  string $method
+     * @param  array  $parameters
      * @return Response
      */
 
@@ -88,68 +70,73 @@ class PageController extends \Controller\Controller
 
     //funkcja pomocnicza przy wysylaniu csv do bazy
 
-    public function importCSV(){
+    public function importCSV()
+    {
+        if(!ALLOW_IMPORT) {
+            return $this->router->redirect('users/index');
+        }
+        
         $View = $this->loadView('Index');
         $UsersModel = $this->loadModel('Users');
 
         switch ($_SERVER['REQUEST_METHOD']) 
         {
-            case 'POST':
-                $file = $_FILES['file'];
+        case 'POST':
+            $file = $_FILES['file'];
 
-                $schemeToDb = array(
-                    'kod' => 'pass_code',
-                    'plec' => 'sex',
-                    'dzielnica' => 'quarter',
-                    'wiek' => 'age',
-                    'imie' => 'firstname',
-                    'naziwsko' => 'lastname',
-                    'miasto' => 'city',
-                    'ulica' => 'street',
-                    'nr budynku' => 'build_nr',
-                    'nr lokalu' => 'flat_nr',
-                    'kod pocztowy' => 'post_code'
-                );
+            $schemeToDb = array(
+                'kod' => 'pass_code',
+                'plec' => 'sex',
+                'dzielnica' => 'quarter',
+                'wiek' => 'age',
+                'imie' => 'firstname',
+                'naziwsko' => 'lastname',
+                'miasto' => 'city',
+                'ulica' => 'street',
+                'nr budynku' => 'build_nr',
+                'nr lokalu' => 'flat_nr',
+                'kod pocztowy' => 'post_code'
+            );
 
-                $scheme = array();
+            $scheme = array();
 
-                $insertRows = array();
+            $insertRows = array();
 
-                $row = 1;
-                if (($handle = fopen($file['tmp_name'], "r")) !== FALSE) {
-                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                        $insertCell = array();
-                        $num = count($data);
-                        $row++;
-                        for ($c=0; $c < $num; $c++) {
-                            if(!empty($scheme)){
-                                $insertCell[$schemeToDb[$scheme[$c]]] = $data[$c];
-                            }else{
-                                $insertCell[] = $data[$c];
-                            }    
-                        }
-                        if(empty($scheme)){
-                            $scheme = $insertCell;
+            $row = 1;
+            if (($handle = fopen($file['tmp_name'], "r")) !== false) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+                    $insertCell = array();
+                    $num = count($data);
+                    $row++;
+                    for ($c=0; $c < $num; $c++) {
+                        if(!empty($scheme)) {
+                            $insertCell[$schemeToDb[$scheme[$c]]] = $data[$c];
                         }else{
-                            $insertRows[] = $insertCell;
-                        }
+                            $insertCell[] = $data[$c];
+                        }    
                     }
-                    fclose($handle);
-                }
-
-                $status = array('errors' => 0, 'success' => 0);
-                foreach ($insertRows as $keyI => $row) {
-                    $addUser = $UsersModel->addUser($row);
-                    if($addUser['return']){
-                        $status['success']++;
+                    if(empty($scheme)) {
+                        $scheme = $insertCell;
                     }else{
-                       $status['errors']++; 
+                        $insertRows[] = $insertCell;
                     }
                 }
+                fclose($handle);
+            }
 
-                echo 'Status importu:';
-                print_r($status);
-                die();
+            $status = array('errors' => 0, 'success' => 0);
+            foreach ($insertRows as $keyI => $row) {
+                $addUser = $UsersModel->addUser($row);
+                if($addUser['return']) {
+                    $status['success']++;
+                }else{
+                    $status['errors']++; 
+                }
+            }
+
+            echo 'Status importu:';
+            print_r($status);
+            die();
                 break;
         }
 
