@@ -77,10 +77,12 @@ class PageController extends \Controller\Controller
         }
 
         if (!isset($_SERVER['PHP_AUTH_PW']) OR !isset($_SERVER['PHP_AUTH_USER']) OR $_SERVER['PHP_AUTH_PW'] != $importConfig['password'] OR $_SERVER['PHP_AUTH_USER'] != $importConfig['user']) {
-            header('WWW-Authenticate: Basic realm="My Realm"');
-            header('HTTP/1.0 401 Unauthorized');
             echo 'Anulowano przejście na stronę';
-            exit;
+            return Response::create('Anulowano przejście na stronę.')
+                ->status(401)
+                ->header([
+                    'WWW-Authenticate' => 'Basic realm="Login"', 
+                ]); 
         }
 
         
