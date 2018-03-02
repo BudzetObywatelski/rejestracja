@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-27 12:12:27
+/* Smarty version 3.1.31, created on 2018-02-28 10:08:36
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/index.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a953d1b55b9d1_98718758',
+  'unifunc' => 'content_5a967194d6f6d1_29006850',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53dc28d3dc5dba31d4ea78d24c319dcc3e27552e' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/index.html.php',
-      1 => 1519729945,
+      1 => 1519808915,
       2 => 'file',
     ),
   ),
@@ -22,20 +22,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a953d1b55b9d1_98718758 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a967194d6f6d1_29006850 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
 <div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
-	<a href="#">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo2.png');?>
-">
-	            </div>
-	        </div>
-	    </a>
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -51,6 +43,8 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
+		                    		<img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo.png');?>
+">
 		                        	<h3 class="wizard-title">
 		                        		Panel obywatelski
 		                        	</h3>
@@ -87,21 +81,20 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
 		                                			<div class="input-group">
 														<span class="input-group-addon">
+															<i class="fas fa-birthday-cake"></i>
+														</span>
+														<div class="form-group label-floating">
+				                                          	<label class="control-label">Imię</label>
+				                                          	<input name="firstname" type="text" class="form-control">
+				                                        </div>
+													</div>
+		                                			<div class="input-group">
+														<span class="input-group-addon">
 															<i class="fas fa-lock"></i>
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
 				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
-				                                        </div>
-													</div>
-
-													<div class="input-group">
-														<span class="input-group-addon">
-															<i class="fas fa-birthday-cake"></i>
-														</span>
-														<div class="form-group label-floating">
-				                                          	<label class="control-label">Data urodzenia</label>
-				                                          	<input name="bday" type="date" class="form-control" value="2000-01-01">
 				                                        </div>
 													</div>
 			                                	</div>
@@ -171,13 +164,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
  type="text/javascript">
 		moment.locale('pl');
 
-		function login(bday, pass, dl){
+		function login(firstname, pass, dl){
 		    $.ajax({
 		        method:'POST',
 		        url:'<?php echo $_smarty_tpl->tpl_vars['router']->value->makeUrl("users/login");?>
 ',
 		        data: {
-		            bday: bday,
+		            firstname: firstname,
 		            pass_code: pass,
 		            deadlines: dl
 		        },
@@ -206,10 +199,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 
 		    $('.login-button').click(function(){
 		    	deadlines = $('form').find('input[type="checkbox"]').prop('checked');
-				bday_cred = $('form').find('input[name="bday"]').val();
+				firstname_cred = $('form').find('input[name="firstname"]').val();
 		    	pass_cred = $('form').find('input[name="pass"]').val();
 
-				login(bday_cred, pass_cred, deadlines);
+				login(firstname_cred, pass_cred, deadlines);
 		    })
 
 		    $.each($('.dl-list').find('li'), function(key, value){

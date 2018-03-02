@@ -53,21 +53,20 @@
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
 		                                			<div class="input-group">
 														<span class="input-group-addon">
+															<i class="fas fa-birthday-cake"></i>
+														</span>
+														<div class="form-group label-floating">
+				                                          	<label class="control-label">Imię</label>
+				                                          	<input name="firstname" type="text" class="form-control">
+				                                        </div>
+													</div>
+		                                			<div class="input-group">
+														<span class="input-group-addon">
 															<i class="fas fa-lock"></i>
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
 				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
-				                                        </div>
-													</div>
-
-													<div class="input-group">
-														<span class="input-group-addon">
-															<i class="fas fa-birthday-cake"></i>
-														</span>
-														<div class="form-group label-floating">
-				                                          	<label class="control-label">Data urodzenia</label>
-				                                          	<input name="bday" type="date" class="form-control" value="2000-01-01">
 				                                        </div>
 													</div>
 			                                	</div>
@@ -105,7 +104,7 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="login"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="Zaloguj"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
@@ -126,12 +125,12 @@
 	<script type="text/javascript">
 		moment.locale('pl');
 
-		function login(bday, pass, dl){
+		function login(firstname, pass, dl){
 		    $.ajax({
 		        method:'POST',
 		        url:'{$router->makeUrl("users/login")}',
 		        data: {
-		            bday: bday,
+		            firstname: firstname,
 		            pass_code: pass,
 		            deadlines: dl
 		        },
@@ -160,10 +159,10 @@
 
 		    $('.login-button').click(function(){
 		    	deadlines = $('form').find('input[type="checkbox"]').prop('checked');
-				bday_cred = $('form').find('input[name="bday"]').val();
+				firstname_cred = $('form').find('input[name="firstname"]').val();
 		    	pass_cred = $('form').find('input[name="pass"]').val();
 
-				login(bday_cred, pass_cred, deadlines);
+				login(firstname_cred, pass_cred, deadlines);
 		    })
 
 		    $.each($('.dl-list').find('li'), function(key, value){

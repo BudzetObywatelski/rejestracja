@@ -85,5 +85,64 @@ class PageController extends \Controller\Controller
         return Response::create($view->fetch('page/'.htmlspecialchars($_GET['action'])));
         
     }
+
+    //funkcja pomocnicza przy wysylaniu csv do bazy
+
+    public function importCSV(){
+        $View = $this->loadView('Index');
+
+        switch ($_SERVER['REQUEST_METHOD']) 
+        {
+            case 'POST':
+                $file = $_FILES['file'];
+
+                $schemeToDb = array(
+                    'kod' => 'pass_code',
+                    'plec' => 'sex',
+                    'dzielnica' => 'quarter',
+                    'wiek' => 'age',
+                    'imi�' => 'firstname',
+                    'naziwsko' => 'lastname',
+                    'miasto' => 'city',
+                    'ulica' => 'street',
+                    'nr budynku' => 'build_nr',
+                    'nr lokalu' => 'flat_nr',
+                    'kod pocztowy' => 'post_code'
+                );
+
+                $scheme = array();
+
+                $insertRows = array();
+
+                $row = 1;
+                if (($handle = fopen($file['tmp_name'], "r")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                        $insertCell = array();
+                        $num = count($data);
+                        $row++;
+                        for ($c=0; $c < $num; $c++) {
+                            if(!empty($scheme)){
+                                $insertCell[$schemeToDb[$scheme[$c]]] = $data[$c];
+                            }else{
+                                $insertCell[] = $data[$c];
+                            }    
+                        }
+                        if(empty($scheme)){
+                            $scheme = $insertCell;
+                        }else{
+                            $insertRows[] = $insertCell;
+                        }
+                    }
+                    fclose($handle);
+                }
+
+                print_r('<pre>');
+                var_dump($insertRows);
+                die();
+                break;
+        }
+
+        $View->render('import');
+    }
     
 }

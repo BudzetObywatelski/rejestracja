@@ -17,9 +17,9 @@ namespace Model;
 class UsersModel extends \Model\Model
 {
 
-    public function getUserByPasses($bday, $pass_code)
+    public function getUserByPasses($firstname, $pass_code)
     {
-        $result = $this->baseClass->db->select('users', '*', array('bday' => $bday, 'pass_code' => $pass_code))->result();
+        $result = $this->baseClass->db->select('users', '*', array('firstname' => $firstname, 'pass_code' => $pass_code))->result();
 
         if (!isset($result['id']))
         {
@@ -36,5 +36,13 @@ class UsersModel extends \Model\Model
         	return $this->methodResult(false);
         }
         return $this->methodResult(true, array('data' => $result));
+    }
+
+    public function updateUser($id, $dataToUpdate){
+        $update = $this->baseClass->db->update('users', $dataToUpdate, array('id' => $id))->affectedRows();
+        if($update <= 0){
+            return $this->methodResult(false);
+        }
+        return $this->methodResult(true);
     }
 }

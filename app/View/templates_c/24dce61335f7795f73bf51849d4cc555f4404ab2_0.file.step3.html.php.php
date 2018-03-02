@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2018-02-27 12:14:43
+/* Smarty version 3.1.31, created on 2018-02-27 13:56:32
   from "/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step3.html.php" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_5a953da3027b60_36129908',
+  'unifunc' => 'content_5a955581003205_65593758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24dce61335f7795f73bf51849d4cc555f4404ab2' => 
     array (
       0 => '/home/amadeusz/htdocs/rejestracja/app/View/templates/users/step3.html.php',
-      1 => 1519722721,
+      1 => 1519736147,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../footer.html.php' => 1,
   ),
 ),false)) {
-function content_5a953da3027b60_36129908 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a955581003205_65593758 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -35,7 +35,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		        	
 		            <!-- Wizard container -->
 		            <div class="wizard-container">
-		                <div class="card wizard-card" data-color="red" id="wizard">
+		                <div class="card wizard-card" data-color="blue" id="wizard">
 		                	<div class="loading">
 				        		<i class="fas fa-spinner rotating"></i>
 				        	</div>
@@ -43,6 +43,8 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    	<div class="wizard-header">
+		                    		<img src="<?php echo $_smarty_tpl->tpl_vars['router']->value->publicWeb('images/logo.png');?>
+">
 		                        	<h3 class="wizard-title">
 		                        		Panel obywatelski
 		                        	</h3>
@@ -50,8 +52,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 								<div class="wizard-navigation">
 									<ul id="navTab">
 			                            <li><a>Logowanie</a></li>
-			                            <li><a>Terminy</a></li>
-			                            <li><a href="#personalData" data-toggle="tab">Dane osobowe</a></li>
+			                            <li class="active"><a href="#personalData" data-toggle="tab">Dane osobowe</a></li>
 			                        </ul>
 								</div>
 
@@ -116,7 +117,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                                    <div class="col-sm-12">
 		                                    	<div class="form-group">
 		                                            <label>Specjalne potrzeby dotyczące diety</label>
-		                                            <textarea class="form-control" placeholder="" rows="3"></textarea>
+		                                            <textarea class="form-control" name="custom-need" placeholder="" rows="3"></textarea>
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-12">
@@ -139,7 +140,7 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd' name='finish' value='Finish' />
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd finish-form' name='finish' value='Finish' />
 	                                </div>
 	                                <div class="pull-left">
 	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
@@ -164,6 +165,65 @@ $_smarty_tpl->_subTemplateRender("file:../header.html.php", $_smarty_tpl->cache_
 	    	</div> <!-- row -->
 		</div> <!--  big container -->
 	</div>
+
+	<?php echo '<script'; ?>
+ type="text/javascript">
+		function validateEmail($email) {
+			
+		  	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		  	
+		  	return emailReg.test( $email );
+		}
+
+		function validateForm() {
+			email = $('form').find('input[name="email"]').val()
+			phone = $('form').find('input[name="phone"]').val()
+			gender = ($('input[name=gender]:checked', 'form').val());
+			education = ($('input[name=education]:checked', 'form').val())
+			customNeed = $('form').find('textarea[name="custom-need"]').val()
+			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked')
+
+			
+			if(email == '' || !validateEmail(email))
+				return {return:false, msg:'Nie podano email-u lub jest niepoprawny!'}
+
+			if(phone == '' || isNaN(phone))
+				return {return:false, msg:'Nie podano numeru telefonu lub jest niepoprawny!'}
+
+			if(gender === undefined)
+				return {return:false, msg:'Nie sprecyzowano płci!'}
+
+			if(education === undefined)
+				return {return:false, msg:'Nie sprecyzowano wykształcenia!'}
+
+			if(!confirmPrivacy)
+				return {return:false, msg:'Nie wyrażono zgody na przetwarzanie danych osobowych!'}
+			
+			return {return:true}
+			
+		}
+
+		$( document ).ready(function() {
+			var email;
+			var phone;
+			var gender;
+			var education;
+			var customNeed;
+			var confirmPrivacy;
+
+			$('.loading').remove();
+
+			$('.finish-form').click(function(){
+				let response = validateForm()
+				
+				if(response.return)
+					console.log('ok')
+				else
+					toastr.error(response.msg)
+			});
+		});
+	<?php echo '</script'; ?>
+>
 <?php $_smarty_tpl->_subTemplateRender("file:../footer.html.php", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }
