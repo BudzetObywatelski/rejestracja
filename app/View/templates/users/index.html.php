@@ -72,6 +72,10 @@
 			                                </div>
 
 			                                <div class="col-sm-12">
+												<span class="adnotation">*Kod identyfikacyjny znajduje się w&nbsp;zaproszeniu</span>
+											</div>
+
+			                                <div class="col-sm-12">
 					                            <div class="tab-pane active" id="schedule">
 													<div class="important-checkbox">
 														<div class="checkbox">
@@ -107,7 +111,6 @@
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
-	                                		*Kod identyfikacyjny znajduje się w&nbsp;zaproszeniu<br/>
 		                                	Kontakt telefoniczny: 123 456 789<br/>
 											Email: beo@lublin.pl
 										</span>
