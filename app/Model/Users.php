@@ -45,4 +45,12 @@ class UsersModel extends \Model\Model
         }
         return $this->methodResult(true);
     }
+
+    public function addUser($dataToAdd){
+        $insert = $this->baseClass->db->insert('users', $dataToAdd)->getLastInsertId();
+        if($insert <= 0){
+            return $this->methodResult(false);
+        }
+        return $this->methodResult(true);
+    }
 }

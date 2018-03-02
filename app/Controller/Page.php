@@ -90,6 +90,7 @@ class PageController extends \Controller\Controller
 
     public function importCSV(){
         $View = $this->loadView('Index');
+        $UsersModel = $this->loadModel('Users');
 
         switch ($_SERVER['REQUEST_METHOD']) 
         {
@@ -136,8 +137,18 @@ class PageController extends \Controller\Controller
                     fclose($handle);
                 }
 
-                print_r('<pre>');
-                var_dump($insertRows);
+                $status = array('errors' => 0, 'success' => 0);
+                foreach ($insertRows as $keyI => $row) {
+                    $addUser = $UsersModel->addUser($row);
+                    if($addUser['return']){
+                        $status['success']++;
+                    }else{
+                       $status['errors']++; 
+                    }
+                }
+
+                echo 'Status importu:';
+                print_r($status);
                 die();
                 break;
         }
