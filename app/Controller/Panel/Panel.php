@@ -44,6 +44,10 @@ class PanelController extends \Controller\Panel\AbstractPanelController
 					$errors['tel_number'] = 'Nie podano numeru telefonu.';
 				}
 
+				if(isset($put['tel_number']) AND !v::phone()->validate($put['tel_number'])){
+					$errors['tel_number'] = 'Niepoprawny numer telefonu.';
+				}
+
 				if (!isset($put['sex']) OR empty($put['sex'])){
 					$errors['sex'] = 'Nie podano płci.';
 				}
