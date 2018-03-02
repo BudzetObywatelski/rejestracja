@@ -38,8 +38,6 @@
 													<p>Aby wziąć udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o&nbsp;wypełnienie zgłoszenia. W&nbsp;tym celu prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z kodem identyfikacyjnym.<br/><br/>
 													Rejestracja przez Internet jest otwarta od <span class="date">{$registerConfig.start}</span>, do <span class="date">{$registerConfig.end}</span>, do godziny 23:59.<br/><br/>
 													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="#">www.strona.pl</a>.<br/><br/>
-													Kontakt telefoniczny: 123 456 789<br/>
-													Email: email@domain.pl
 													</p>
 												</div>
 			                            	</div>
