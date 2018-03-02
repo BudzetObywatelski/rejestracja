@@ -51,22 +51,6 @@ class PageController extends \Controller\Controller
      * @return Response
      */
 
-    public function __call($method, $test)
-    {
-
-        $smartyConfig = Config::load('view/smarty');
-        $view = $this->loadView('Index');
-
-        $patchController = $smartyConfig->get('setTemplateDir', APP_DIR.'View/templates').'/page/'.htmlspecialchars($_GET['action']).$smartyConfig->get('fileExtension', '.html.php');
-        
-        if (!file_exists($patchController)) {  
-            return $this->router->redirect('page/index');
-        }
-
-        return Response::create($view->fetch('page/'.htmlspecialchars($_GET['action'])));
-        
-    }
-
     //funkcja pomocnicza przy wysylaniu csv do bazy
 
     public function importCSV()
