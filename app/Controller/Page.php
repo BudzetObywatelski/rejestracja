@@ -77,7 +77,6 @@ class PageController extends \Controller\Controller
         }
 
         if (!isset($_SERVER['PHP_AUTH_PW']) OR !isset($_SERVER['PHP_AUTH_USER']) OR $_SERVER['PHP_AUTH_PW'] != $importConfig['password'] OR $_SERVER['PHP_AUTH_USER'] != $importConfig['user']) {
-            echo 'Anulowano przejście na stronę';
             return Response::create('Anulowano przejście na stronę.')
                 ->status(401)
                 ->headers([
