@@ -93,6 +93,24 @@
   cursor: pointer;
 }
 
+.tab-content.passed{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.tab-content.passed h2{
+  margin-bottom: 3.5em;
+}
+
+.tab-content.passed svg{
+  font-size: 7em;
+  position: absolute;
+  bottom: 0.6em;
+  color: #01a701;
+}
+
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
     -webkit-transform: rotate(0deg);

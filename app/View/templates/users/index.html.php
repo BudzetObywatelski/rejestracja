@@ -1,6 +1,5 @@
 {include file="../header.html.php"}
-
-<div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
+<div class="image-container set-full-height" style="background-image: url({$router->publicWeb('images/background.jpg')})">
 	    <!--   Big container   -->
 	    <div class="container">
 	        <div class="row">
@@ -53,7 +52,7 @@
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
 		                                			<div class="input-group">
 														<span class="input-group-addon">
-															<i class="fas fa-birthday-cake"></i>
+															<i class="fas fa-user"></i>
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Imię</label>
@@ -66,7 +65,7 @@
 														</span>
 														<div class="form-group label-floating">
 				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
-				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password">
+				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password" aria-required="true">
 				                                        </div>
 													</div>
 			                                	</div>

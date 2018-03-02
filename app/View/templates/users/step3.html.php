@@ -1,5 +1,5 @@
 {include file="../header.html.php"}
-<div class="image-container set-full-height" style="background-image: url('http://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg')">
+<div class="image-container set-full-height" style="background-image: url({$router->publicWeb('images/background.jpg')})">
 
 	    <!--   Big container   -->
 	    <div class="container">
@@ -54,13 +54,13 @@
 		                                    	<label>Płeć</label>
 	                                    		<div class="radio">
 												    <label>
-													    <input type="radio" name="gender" value="male">
+													    <input type="radio" name="gender" value="m">
 												    </label>
 												    Mężczyzna
 											    </div>
 											    <div class="radio">
 												    <label>
-													    <input type="radio" name="gender" value="female">
+													    <input type="radio" name="gender" value="k">
 												    </label>
 												    Kobieta
 											    </div>
@@ -69,19 +69,19 @@
 		                                    	<label>Wykształcenie</label>
 		                                    	<div class="radio">
 												    <label>
-													    <input type="radio" name="education" value="group1">
+													    <input type="radio" name="education" value="basic">
 												    </label>
 												    Podstawowe, gimnazjalne, inne
 											    </div>
 											    <div class="radio">
 												    <label>
-													    <input type="radio" name="education" value="group2">
+													    <input type="radio" name="education" value="medium">
 												    </label>
 												    Średnie, policealne, kolegium, zawodowe
 											    </div>
 											    <div class="radio">
 												    <label>
-													    <input type="radio" name="education" value="group3">
+													    <input type="radio" name="education" value="high">
 												    </label>
 												    Wyższe
 											    </div>												
@@ -97,14 +97,11 @@
 												    <label>
 													    <input type="checkbox" name="confirm-privacy">
 												    </label>
-												    Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby organizacji panelu obywatelskiego w&nbsp;Lublinie, zgodnie z&nbps;ustawą xxyyzz
+												    Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby organizacji panelu obywatelskiego w&nbsp;Lublinie, zgodnie z&nbsp;ustawą xxyyzz
 											    </div>
 											    <div class="under-text">
 			                                		<span class="info-text">
-			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>
-												    Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>
-												    Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>
-												    Podanie danych osobowych jest dobrowolne.</span>
+			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>Podanie danych osobowych jest dobrowolne.</span>
 			                                	</div>
 		                                    </div>
 		                                </div>
@@ -112,21 +109,10 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd finish-form' name='finish' value='Finish' />
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd finish-form' name='finish' value='Zarejestruj' />
 	                                </div>
 	                                <div class="pull-left">
-	                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
-
-<!-- 										<div class="footer-checkbox">
-											<div class="col-sm-12">
-											  <div class="checkbox">
-												  <label>
-													  <input type="checkbox" name="optionsCheckboxes">
-												  </label>
-												  Subscribe to our newsletter
-											  </div>
-										  </div>
-										</div> -->
+	                                    <a href="{$router->makeUrl('panel,panel/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
 	                                </div>
 	                                <div class="clearfix"></div>
 	                        	</div>
@@ -147,31 +133,61 @@
 		}
 
 		function validateForm() {
-			email = $('form').find('input[name="email"]').val()
-			phone = $('form').find('input[name="phone"]').val()
+			email = $('form').find('input[name="email"]').val();
+			phone = $('form').find('input[name="phone"]').val();
 			gender = ($('input[name=gender]:checked', 'form').val());
-			education = ($('input[name=education]:checked', 'form').val())
-			customNeed = $('form').find('textarea[name="custom-need"]').val()
-			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked')
+			education = ($('input[name=education]:checked', 'form').val());
+			customNeed = $('form').find('textarea[name="custom-need"]').val();
+			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked');
 
 			{literal}
 			if(email == '' || !validateEmail(email))
-				return {return:false, msg:'Nie podano email-u lub jest niepoprawny!'}
+				return {return:false, msg:'Nie podano email-u lub jest niepoprawny!'};
 
 			if(phone == '' || isNaN(phone))
-				return {return:false, msg:'Nie podano numeru telefonu lub jest niepoprawny!'}
+				return {return:false, msg:'Nie podano numeru telefonu lub jest niepoprawny!'};
 
 			if(gender === undefined)
-				return {return:false, msg:'Nie sprecyzowano płci!'}
+				return {return:false, msg:'Nie sprecyzowano płci!'};
 
 			if(education === undefined)
-				return {return:false, msg:'Nie sprecyzowano wykształcenia!'}
+				return {return:false, msg:'Nie sprecyzowano wykształcenia!'};
 
 			if(!confirmPrivacy)
-				return {return:false, msg:'Nie wyrażono zgody na przetwarzanie danych osobowych!'}
+				return {return:false, msg:'Nie wyrażono zgody na przetwarzanie danych osobowych!'};
 			
 			return {return:true}
 			{/literal}
+		}
+
+		function finalize(){
+		    $.ajax({
+		        method:'PUT',
+		        url:'{$router->makeUrl("panel,panel/fillUser")}',
+		        data: {
+		            email: email,
+		            tel_number: phone,
+		            sex: gender,
+		            education: education,
+		            special_text: customNeed
+		        },
+		        cache: false,
+		        success:function(response){
+		            console.log(response)
+		            if(response.code == 200){
+		            	toastr.success(response.response);
+		            	$('.wizard-navigation').remove();
+		            	$('.wizard-footer').remove();
+		            	$('.tab-content').toggleClass('passed');
+		            	$('.tab-content').html('<h2>Dziękujemy za zarejestrowanie się!</h2><i class="fas fa-check"></i>');
+		            }
+		        },
+		        error:function(response){
+		        	$.each(response.responseJSON.errors, function(key, error){
+	            		toastr.error(error);
+	            	})
+		        }
+		    })
 		}
 
 		$( document ).ready(function() {
@@ -185,12 +201,12 @@
 			$('.loading').remove();
 
 			$('.finish-form').click(function(){
-				let response = validateForm()
+				let response = validateForm();
 				
 				if(response.return)
-					console.log('ok')
+					finalize();
 				else
-					toastr.error(response.msg)
+					toastr.error(response.msg);
 			});
 		});
 	</script>
