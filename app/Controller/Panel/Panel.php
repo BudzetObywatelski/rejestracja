@@ -112,10 +112,4 @@ class PanelController extends \Controller\Panel\AbstractPanelController
         }
         return Response::renderJSON(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
     }
-
-    public function logout()
-    {
-        $this->baseClass->session->end();
-        return $this->router->redirect('users/index');
-    }
 }

@@ -30,7 +30,8 @@ use Dframe\Router\Response;
 
 class UsersController extends \Controller\Controller
 {
-    public function init()
+
+    public function index()
     {
         $sessionId = $this->baseClass->session->get('id');
         if($sessionId != null OR !empty($sessionId)) {
@@ -40,10 +41,7 @@ class UsersController extends \Controller\Controller
                 return $this->router->redirect('panel,panel/fill');
             }
         }
-    }
 
-    public function index()
-    {
         $View = $this->loadView('Index');
 
         $registerConfig = Config::load('options')->get('register');
@@ -68,6 +66,15 @@ class UsersController extends \Controller\Controller
 
     public function login()
     {
+        $sessionId = $this->baseClass->session->get('id');
+        if($sessionId != null OR !empty($sessionId)) {
+            $UsersModel = $this->loadModel('Users');
+            $getUserById = $UsersModel->getUserById($sessionId);
+            if($getUserById['return']) {
+                return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => array('Jesteś już zalogowany.'), 'data' => array()))->status(400);
+            }
+        }
+
         switch ($_SERVER['REQUEST_METHOD']) 
         {
         case 'POST':
@@ -118,5 +125,11 @@ class UsersController extends \Controller\Controller
           break;
         }
         return Response::renderJSON(array('code' => 405, 'response' => '', 'errors' => array('Metoda niedozwolona.'), 'data' => array()))->status(405);
+    }
+
+    public function logout()
+    {
+        $this->baseClass->session->end();
+        return $this->router->redirect('users/index');
     }
 }

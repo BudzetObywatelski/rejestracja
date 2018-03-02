@@ -60,7 +60,7 @@
 	                                    <input type='button' class='btn btn-fill btn-success btn-wd check-checked' name='next' value='Dalej' />
 	                                </div>
 	                                <div class="pull-left">
-	                                    <a href="{$router->makeUrl('panel,panel/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
+	                                    <a href="{$router->makeUrl('users/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
 
 <!-- 										<div class="footer-checkbox">
 											<div class="col-sm-12">

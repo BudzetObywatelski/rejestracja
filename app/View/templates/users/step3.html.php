@@ -99,7 +99,7 @@
 	                                    <input type='button' class='btn btn-fill btn-success btn-wd finish-form' name='finish' value='Zarejestruj' />
 	                                </div>
 	                                <div class="pull-left">
-	                                    <a href="{$router->makeUrl('panel,panel/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
+	                                    <a href="{$router->makeUrl('users/logout')}" class='btn btn-fill btn-default btn-wd'>Wyloguj</a>
 	                                </div>
 	                                <div class="clearfix"></div>
 	                        	</div>

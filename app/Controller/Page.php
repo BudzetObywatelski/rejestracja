@@ -42,15 +42,6 @@ class PageController extends \Controller\Controller
         return Response::create($view->fetch('errors/'.$_GET['type']))->status($_GET['type']);
         
     }
-
-    /**
-     * Catch-all method for requests that can't be matched.
-     *
-     * @param  string $method
-     * @param  array  $parameters
-     * @return Response
-     */
-
     //funkcja pomocnicza przy wysylaniu csv do bazy
 
     public function importCSV()
