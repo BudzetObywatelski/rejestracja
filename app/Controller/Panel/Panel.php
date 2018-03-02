@@ -74,7 +74,7 @@ class PanelController extends \Controller\Panel\AbstractPanelController
                 return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
             }
 
-            // $allowedSex = array('k', 'm');
+            // $allowedSex = array('f', 'm');
             $allowedEducation = array('basic', 'medium', 'high');
 
             $allowErrors = array();
@@ -94,7 +94,7 @@ class PanelController extends \Controller\Panel\AbstractPanelController
             'email' => htmlspecialchars($put['email']),
             'tel_number' => htmlspecialchars($put['tel_number']),
             'education' => htmlspecialchars($put['education']),
-            // 'sex' => ($put['sex'] == 'k') ? 'K' : 'M',
+            // 'sex' => ($put['sex'] == 'f') ? 'F' : 'M',
             'special_text' => (isset($put['special_text']) AND !empty($put['special_text'])) ? htmlspecialchars($put['special_text']) : '',
             'registred' => 1
             );
