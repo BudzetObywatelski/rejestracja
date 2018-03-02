@@ -29,3 +29,4 @@ web/uploads/*
 !web/cache/assets/.gitkeep
 !web/uploads/.gitkeep
 
+vendor/
