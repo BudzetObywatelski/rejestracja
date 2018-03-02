@@ -56,6 +56,22 @@ class PanelController extends \Controller\Panel\AbstractPanelController
 					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
 				}
 
+				$allowedSex = array('k', 'm');
+				$allowedEducation = array('basic', 'medium', 'high');
+
+				$allowErrors = array();
+				if(!in_array($put['sex'], $allowedSex)){
+					$errors['sex'] = 'Niedozwolone wartości płci.';
+				}
+
+				if(!in_array($put['education'], $allowedEducation)){
+					$errors['education'] = 'Niedozwolone wartości wykształcenia.';
+				}
+
+				if(!empty($allowErrors)){
+					return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $allowErrors, 'data' => array()))->status(400);
+				}
+
 				$dataToUpdate = array(
 					'email' => htmlspecialchars($put['email']),
 					'tel_number' => htmlspecialchars($put['tel_number']),

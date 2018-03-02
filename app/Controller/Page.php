@@ -101,7 +101,7 @@ class PageController extends \Controller\Controller
                     'plec' => 'sex',
                     'dzielnica' => 'quarter',
                     'wiek' => 'age',
-                    'imi�' => 'firstname',
+                    'imie' => 'firstname',
                     'naziwsko' => 'lastname',
                     'miasto' => 'city',
                     'ulica' => 'street',
