@@ -80,7 +80,7 @@ class PageController extends \Controller\Controller
             echo 'Anulowano przejście na stronę';
             return Response::create('Anulowano przejście na stronę.')
                 ->status(401)
-                ->header([
+                ->headers([
                     'WWW-Authenticate' => 'Basic realm="Login"', 
                 ]); 
         }
