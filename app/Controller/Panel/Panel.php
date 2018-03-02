@@ -62,9 +62,9 @@ class PanelController extends \Controller\Panel\AbstractPanelController
                 $errors['tel_number'] = 'Niepoprawny numer telefonu.';
             }
 
-            if (!isset($put['sex']) OR empty($put['sex'])) {
-                $errors['sex'] = 'Nie podano płci.';
-            }
+            // if (!isset($put['sex']) OR empty($put['sex'])) {
+            //     $errors['sex'] = 'Nie podano płci.';
+            // }
 
             if (!isset($put['education']) OR empty($put['education'])) {
                 $errors['education'] = 'Nie podano wykształcenia.';
@@ -74,13 +74,13 @@ class PanelController extends \Controller\Panel\AbstractPanelController
                 return Response::renderJSON(array('code' => 400, 'response' => '', 'errors' => $errors, 'data' => array()))->status(400);
             }
 
-            $allowedSex = array('k', 'm');
+            // $allowedSex = array('k', 'm');
             $allowedEducation = array('basic', 'medium', 'high');
 
             $allowErrors = array();
-            if(!in_array($put['sex'], $allowedSex)) {
-                $allowErrors['sex'] = 'Niedozwolone wartości płci.';
-            }
+            // if(!in_array($put['sex'], $allowedSex)) {
+            //     $allowErrors['sex'] = 'Niedozwolone wartości płci.';
+            // }
 
             if(!in_array($put['education'], $allowedEducation)) {
                 $allowErrors['education'] = 'Niedozwolone wartości wykształcenia.';
@@ -94,7 +94,7 @@ class PanelController extends \Controller\Panel\AbstractPanelController
             'email' => htmlspecialchars($put['email']),
             'tel_number' => htmlspecialchars($put['tel_number']),
             'education' => htmlspecialchars($put['education']),
-            'sex' => ($put['sex'] == 'k') ? 'K' : 'M',
+            // 'sex' => ($put['sex'] == 'k') ? 'K' : 'M',
             'special_text' => (isset($put['special_text']) AND !empty($put['special_text'])) ? htmlspecialchars($put['special_text']) : '',
             'registred' => 1
             );
