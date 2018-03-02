@@ -61,11 +61,11 @@ class PanelController extends \Controller\Panel\AbstractPanelController
 
 				$allowErrors = array();
 				if(!in_array($put['sex'], $allowedSex)){
-					$errors['sex'] = 'Niedozwolone wartości płci.';
+					$allowErrors['sex'] = 'Niedozwolone wartości płci.';
 				}
 
 				if(!in_array($put['education'], $allowedEducation)){
-					$errors['education'] = 'Niedozwolone wartości wykształcenia.';
+					$allowErrors['education'] = 'Niedozwolone wartości wykształcenia.';
 				}
 
 				if(!empty($allowErrors)){
