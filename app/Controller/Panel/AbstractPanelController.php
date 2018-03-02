@@ -26,9 +26,9 @@ namespace Controller\Panel;
  * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */
 
-Abstract class AbstractPanelController extends \Controller\Controller
+Abstract class AbstractPanelController extends \Dframe\Controller
 {
-    public function init()
+    public function start()
     {
         
         $sessionId = $this->baseClass->session->get('id');
