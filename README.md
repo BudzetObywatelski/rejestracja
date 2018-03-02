@@ -36,16 +36,19 @@ A następnie zmieniamy w sekcji **register** wartości **start** i **end**
 >'end' => '2018-04-20'
 
 ## Importowanie CSV z osobami do systemu
-Aby zaimportować listę osób, z danymi do logowania, musimy przejść do pliku
->web/config.php
+Aby zaimportować listę osób, z danymi do logowania, musimy włączyć i skonfigurować stronę importu. W tym celu przechodzimy do pliku
+>app/Config/import.php
 
-Znaleźć wartość 
->define('ALLOW_IMPORT', false); //setting allow to import CSV
+A następnie zmieniamy opcję **allow** na **true**, a **user** i **password** konfigurujemy według własnego uznania
+>'import' => array(
+	'allow' => true,
+        'user' => 'user',
+        'password' => 'password1234' //change!!!!
+    )
 
-I zmienić jej ustawienie na **true**
 Następnie przechodzimy na link http://naszadomena/page/importCSV i wybieramy nasz plik CSV, potwierdzając **Prześlij**.
 Po prawidłowym przesłaniu pliku ukaże nam się komunikat
 >Status importu:Array ( \[errors\] => 0 \[success\] => 13 )
 
 Przedstawiający status wykonanej operacji.
-Na koniec cofamy ustawienie **true** w **web/config.php** na **false**, blokując dostęp do podstrony.
+Na koniec cofamy ustawienie **true** w **app/Config/import.php** na **false**, blokując dostęp do podstrony.

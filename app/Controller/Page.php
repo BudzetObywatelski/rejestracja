@@ -71,9 +71,18 @@ class PageController extends \Controller\Controller
 
     public function importCSV()
     {
-        if(!ALLOW_IMPORT) {
+        $importConfig = Config::load('import')->get('import');
+        if(!$importConfig['allow']) {
             return $this->router->redirect('users/index');
         }
+
+        if (!isset($_SERVER['PHP_AUTH_PW']) OR !isset($_SERVER['PHP_AUTH_USER']) OR $_SERVER['PHP_AUTH_PW'] != $importConfig['password'] OR $_SERVER['PHP_AUTH_USER'] != $importConfig['user']) {
+            header('WWW-Authenticate: Basic realm="My Realm"');
+            header('HTTP/1.0 401 Unauthorized');
+            echo 'Anulowano przejście na stronę';
+            exit;
+        }
+
         
         $View = $this->loadView('Index');
         $UsersModel = $this->loadModel('Users');

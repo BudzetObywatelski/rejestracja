@@ -34,8 +34,9 @@ namespace Model;
 
 abstract class Model extends \Dframe\Model
 {
-	public function start(){
-		try {
+    public function start()
+    {
+        try {
             if(!empty(DB_HOST)) {
                 $dbConfig = array(
                     'host' => DB_HOST, 
@@ -50,5 +51,5 @@ abstract class Model extends \Dframe\Model
             echo 'The connect can not create: ' . $e->getMessage();
             exit();
         }
-	}
+    }
 }
