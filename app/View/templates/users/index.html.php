@@ -64,7 +64,7 @@
 															<i class="fas fa-lock"></i>
 														</span>
 														<div class="form-group label-floating">
-				                                          	<label class="control-label">Kod identyfikacyjny, jest w&nbsp;zaproszeniu</label>
+				                                          	<label class="control-label">Kod identyfikacyjny*</label>
 				                                          	<input name="pass" type="password" class="form-control" autocomplete="new-password" aria-required="true">
 				                                        </div>
 													</div>
@@ -107,6 +107,7 @@
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
+	                                		*Kod identyfikacyjny znajduje się w&nbsp;zaproszeniu<br/>
 		                                	Kontakt telefoniczny: 123 456 789<br/>
 											Email: beo@lublin.pl
 										</span>

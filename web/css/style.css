@@ -74,6 +74,7 @@
 .footer-contact{
     color: #7b7b7b;
     margin: 10px 1px;
+    max-width: 60%;
 }
 
 .loading {
