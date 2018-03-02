@@ -51,19 +51,6 @@
 			                                          	<input name="phone" type="text" class="form-control">
 			                                        </div>
 												</div>
-		                                    	<label>Płeć</label>
-	                                    		<div class="radio">
-												    <label>
-													    <input type="radio" name="gender" value="m">
-												    </label>
-												    Mężczyzna
-											    </div>
-											    <div class="radio">
-												    <label>
-													    <input type="radio" name="gender" value="k">
-												    </label>
-												    Kobieta
-											    </div>
 		                                    </div>
 		                                    <div class="col-sm-6">
 		                                    	<label>Wykształcenie</label>
@@ -135,7 +122,6 @@
 		function validateForm() {
 			email = $('form').find('input[name="email"]').val();
 			phone = $('form').find('input[name="phone"]').val();
-			gender = ($('input[name=gender]:checked', 'form').val());
 			education = ($('input[name=education]:checked', 'form').val());
 			customNeed = $('form').find('textarea[name="custom-need"]').val();
 			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked');
@@ -147,8 +133,6 @@
 			if(phone == '' || isNaN(phone))
 				return {return:false, msg:'Nie podano numeru telefonu lub jest niepoprawny!'};
 
-			if(gender === undefined)
-				return {return:false, msg:'Nie sprecyzowano płci!'};
 
 			if(education === undefined)
 				return {return:false, msg:'Nie sprecyzowano wykształcenia!'};
@@ -167,7 +151,6 @@
 		        data: {
 		            email: email,
 		            tel_number: phone,
-		            sex: gender,
 		            education: education,
 		            special_text: customNeed
 		        },
@@ -193,7 +176,6 @@
 		$( document ).ready(function() {
 			var email;
 			var phone;
-			var gender;
 			var education;
 			var customNeed;
 			var confirmPrivacy;
