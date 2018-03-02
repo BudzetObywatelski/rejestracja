@@ -117,6 +117,10 @@
   color: #01a701;
 }
 
+.date{
+  font-weight: bold;
+}
+
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
     -webkit-transform: rotate(0deg);

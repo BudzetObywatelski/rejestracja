@@ -31,22 +31,20 @@
 		                            <div class="tab-pane active" id="login">
 		                            	<div class="row">
 
-		                            		{if !isset($allowLogin) OR !$allowLogin}
-
 			                            	<div class="col-sm-12">
 			                            		<div class="time-info">
 													<h5 class="text-center"><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim<br/> „Co zrobić aby oddychać czystym powietrzem w&nbsp;Lublinie”!</b></h5>
 
-													<p>Aby wziąć udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o&nbsp;wypełnienie zgłoszenia. W&nbsp;tym celu prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z kodem identyfikacyjnym.<br/>
-													Rejestracja przez Internet jest otwarta do 12 marca 2018 r., do godz. 23:59.<br/>
-													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="#">www.strona.pl</a>.<br/>
+													<p>Aby wziąć udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o&nbsp;wypełnienie zgłoszenia. W&nbsp;tym celu prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z kodem identyfikacyjnym.<br/><br/>
+													Rejestracja przez Internet jest otwarta od <span class="date">{$registerConfig.start}</span>, do <span class="date">{$registerConfig.end}</span>.<br/><br/>
+													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="#">www.strona.pl</a>.<br/><br/>
 													Kontakt telefoniczny: 123 456 789<br/>
-													Email: xd@xd.pl
+													Email: email@domain.pl
 													</p>
 												</div>
 			                            	</div>
 
-			                            	{else}
+		                            	{if isset($allowLogin) OR $allowLogin}
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
 		                                			<h4 style="text-align: center;"> Logowanie</h4>
@@ -170,6 +168,10 @@
 
 		    $.each($('.dl-list').find('li'), function(key, value){
 		    	$(value).html(moment($(value).html().replace(/\s/g, '')).format('Do MMMM YYYY').replace('.', ''));
+		    })
+
+		    $.each($('.date'), function(key, value){
+		    	$(value).html(moment($(value).html().replace(/\s/g, '')).format('D MMMM').replace('.', ''));
 		    })
 		});
 	</script>
