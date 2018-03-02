@@ -83,7 +83,7 @@
 													</div>
 					                                <div class="row">
 					                                    <div class="col-sm-10">
-					                                        <div class="col-sm-4">
+					                                        <div class="col-sm-12">
 					                                        	<ul class="dl-list">
 						                                        	{foreach from=$deadlines item=deadline}
 						                                            <li>
