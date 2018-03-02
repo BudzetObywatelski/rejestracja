@@ -1,7 +1,6 @@
 bin/logs.txt
 
 web/PDO_Errors.log
-web/config.php
 
 crontest.txt
 web/info.php
