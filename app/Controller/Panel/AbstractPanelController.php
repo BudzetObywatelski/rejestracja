@@ -36,7 +36,7 @@ Abstract class AbstractPanelController extends \Controller\Controller
         if($sessionId != null OR !empty($sessionId)) {
             $UsersModel = $this->loadModel('Users');
             $getUserById = $UsersModel->getUserById($sessionId);
-            if(!$getUserById['return']) {
+            if(!$getUserById['return'] OR $getUserById['data']['registred'] != 0) {
                 $this->baseClass->session->end();
                 return $this->router->redirect('users/index');
             }
