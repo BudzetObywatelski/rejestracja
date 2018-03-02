@@ -24,7 +24,6 @@ use Dframe\Config;
 use Dframe\Router\Response;
 
 /**
- * Here is a description of what this file is for.
  *
  * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */

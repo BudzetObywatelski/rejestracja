@@ -25,7 +25,6 @@ use Dframe\Router\Response;
 use Respect\Validation\Validator as v;
 
 /**
- * Here is a description of what this file is for.
  *
  * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */

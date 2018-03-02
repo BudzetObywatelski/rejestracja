@@ -22,7 +22,6 @@
 namespace Controller\Panel;
 
 /**
- * Here is a description of what this file is for.
  *
  * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */

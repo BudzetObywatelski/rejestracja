@@ -27,7 +27,6 @@ use Dframe\Database\Database;
 require_once dirname(__DIR__).'/web/config.php';
 
 /**
- * Here is a description of what this file is for.
  *
  * @author Amadeusz Dzięcioł <amadeusz.xd@gmail.com>
  */
