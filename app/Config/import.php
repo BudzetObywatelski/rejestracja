@@ -1,7 +1,7 @@
 <?php
 return array(
     'import' => array(
-        'allow' => true,
+        'allow' => false,
         'user' => 'user',
         'password' => 'password1234' //change!!!!
     )
