@@ -158,7 +158,6 @@
 		        success:function(response){
 		            console.log(response)
 		            if(response.code == 200){
-		            	toastr.success(response.response);
 		            	$('.wizard-navigation').remove();
 		            	$('.wizard-footer').remove();
 		            	$('.tab-content').toggleClass('passed');

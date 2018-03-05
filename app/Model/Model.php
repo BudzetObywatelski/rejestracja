@@ -36,7 +36,7 @@ abstract class Model extends \Dframe\Model
 {
     public function start()
     {
-        try {
+    	try {
             if(!empty(DB_HOST)) {
                 $dbConfig = array(
                     'host' => DB_HOST, 
