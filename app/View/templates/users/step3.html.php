@@ -58,7 +58,7 @@
 												    <label>
 													    <input type="radio" name="education" value="basic">
 												    </label>
-												    Podstawowe, gimnazjalne, inne
+												    Podstawowe, gimnazjalne
 											    </div>
 											    <div class="radio">
 												    <label>
@@ -88,7 +88,8 @@
 											    </div>
 											    <div class="under-text">
 			                                		<span class="info-text">
-			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>Podanie danych osobowych jest dobrowolne.</span>
+			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>Podanie danych osobowych jest dobrowolne (nie podanie informacji wyklucza uczestniczenie w ostatecznej liście losowania).
+</span>
 			                                	</div>
 		                                    </div>
 		                                </div>
@@ -161,7 +162,7 @@
 		            	$('.wizard-navigation').remove();
 		            	$('.wizard-footer').remove();
 		            	$('.tab-content').toggleClass('passed');
-		            	$('.tab-content').html('<h2>Dziękujemy za zarejestrowanie się!</h2><i class="fas fa-check"></i>');
+		            	$('.tab-content').html('<h2>Dziękujemy za rejestrację!</h2><i class="fas fa-check"></i>');
 		            }
 		        },
 		        error:function(response){

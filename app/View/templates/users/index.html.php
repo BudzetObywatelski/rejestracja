@@ -22,8 +22,8 @@
 		                    	</div>
 								<div class="wizard-navigation">
 									<ul id="navTab">
-			                            <li class="active"><a href="#login" data-toggle="tab">Logowanie</a></li>
-			                            <li><a>Dane osobowe</a></li>
+			                            <li class="active"><a href="#login" data-toggle="tab">Krok 1</a></li>
+			                            <li><a>Krok 2</a></li>
 			                        </ul>
 								</div>
 
@@ -35,9 +35,9 @@
 			                            		<div class="time-info">
 													<h5 class="text-center"><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim<br/> „Co zrobić aby oddychać czystym powietrzem w&nbsp;Lublinie”!</b></h5>
 
-													<p>Aby wziąć udział w&nbsp;ostatecznym losowaniu panelistów i&nbsp;panelistek, prosimy o&nbsp;wypełnienie zgłoszenia. W&nbsp;tym celu prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z kodem identyfikacyjnym.<br/><br/>
+													<p>Prosimy o&nbsp;rejestrację w&nbsp;formularzu poniżej, jeśli zdecydował/a się Pan/Pani w&nbsp;ostatecznym losowaniu. Prosimy o&nbsp;przygotowanie  otrzymanego pocztą zaproszenia wraz z&nbsp;kodem identyfikacyjnym. <br/><br/>
 													Rejestracja przez Internet jest otwarta od <span class="date">{$registerConfig.start}</span>, do <span class="date">{$registerConfig.end}</span>, do godziny 23:59.<br/><br/>
-													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="#">www.strona.pl</a>.<br/><br/>
+													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="www.lublin.eu/panel">www.lublin.eu/panel</a>.<br/><br/>
 													</p>
 												</div>
 			                            	</div>
@@ -45,7 +45,7 @@
 		                            	{if isset($allowLogin) OR $allowLogin}
 		                                	<div class="col-sm-12 login-form">
 		                                		<div class="col-sm-6">
-		                                			<h4 style="text-align: center;"> Logowanie</h4>
+		                                			<h4 style="text-align: center;"> Rejestracja</h4>
 		                                			<div class="input-group">
 														<span class="input-group-addon">
 															<i class="fas fa-user"></i>
@@ -68,7 +68,7 @@
 			                                </div>
 
 			                                <div class="col-sm-12">
-												<span class="adnotation">*Kod identyfikacyjny znajduje się w&nbsp;zaproszeniu</span>
+												<span class="adnotation">*Kod identyfikacyjny znajduje się w&nbsp;prawym górnym rogu</span>
 											</div>
 
 			                                <div class="col-sm-12">
@@ -107,7 +107,7 @@
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
-		                                	Kontakt telefoniczny: 123 456 789<br/>
+		                                	Kontakt telefoniczny: 81 466 19 00<br/>
 											Email: beo@lublin.pl
 										</span>
 	                                </div>
