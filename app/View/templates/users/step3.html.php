@@ -23,8 +23,8 @@
 		                    	</div>
 								<div class="wizard-navigation">
 									<ul id="navTab">
-			                            <li><a>Logowanie</a></li>
-			                            <li class="active"><a href="#personalData" data-toggle="tab">Dane osobowe</a></li>
+			                            <li><a>Krok 1</a></li>
+			                            <li class="active"><a href="#personalData" data-toggle="tab">Krok 2</a></li>
 			                        </ul>
 								</div>
 
