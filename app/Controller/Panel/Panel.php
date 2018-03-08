@@ -46,13 +46,16 @@ class PanelController extends \Controller\Panel\AbstractPanelController
         case 'PUT':
             parse_str(file_get_contents("php://input"), $put);
             $errors = array();
-            if (!isset($put['email']) OR empty($put['email'])) {
-                $errors['email'] = 'Nie podano adres email.';
+            // if (!isset($put['email']) OR empty($put['email'])) {
+            //     $errors['email'] = 'Nie podano adres email.';
+            // }
+
+            if(isset($put['email']) AND !empty($put['email'])){
+                if(!v::email()->validate($put['email'])) {
+                    $errors['email'] = 'Niepoprawny adres email.';
+                }
             }
 
-            if(isset($put['email']) AND !v::email()->validate($put['email'])) {
-                $errors['email'] = 'Niepoprawny adres email.';
-            }
 
             if (!isset($put['tel_number']) OR empty($put['tel_number'])) {
                 $errors['tel_number'] = 'Nie podano numeru telefonu.';
@@ -91,7 +94,7 @@ class PanelController extends \Controller\Panel\AbstractPanelController
             }
 
             $dataToUpdate = array(
-            'email' => htmlspecialchars($put['email']),
+            'email' => (isset($put['email'])) ? htmlspecialchars($put['email']) : '',
             'tel_number' => htmlspecialchars($put['tel_number']),
             'education' => htmlspecialchars($put['education']),
             // 'sex' => ($put['sex'] == 'f') ? 'F' : 'M',

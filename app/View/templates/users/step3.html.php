@@ -38,7 +38,7 @@
 														<i class="fas fa-envelope"></i>
 													</span>
 													<div class="form-group label-floating">
-			                                          	<label class="control-label">Adres email</label>
+			                                          	<label class="control-label">Adres email (zalecany)</label>
 			                                          	<input name="email" type="text" class="form-control">
 			                                        </div>
 												</div>
@@ -47,13 +47,13 @@
 														<i class="fas fa-mobile"></i>
 													</span>
 													<div class="form-group label-floating">
-			                                          	<label class="control-label">Numer telefonu</label>
+			                                          	<label class="control-label">Telefon (konieczny)</label>
 			                                          	<input name="phone" type="text" class="form-control">
 			                                        </div>
 												</div>
 		                                    </div>
 		                                    <div class="col-sm-6">
-		                                    	<label>Wykształcenie</label>
+		                                    	<label>Wykształcenie (konieczne do dalszego etapu losowania)</label>
 		                                    	<div class="radio">
 												    <label>
 													    <input type="radio" name="education" value="basic">
@@ -84,13 +84,14 @@
 												    <label>
 													    <input type="checkbox" name="confirm-privacy">
 												    </label>
-												    Wyrażam zgodę na przetwarzanie moich danych osobowych na potrzeby organizacji panelu obywatelskiego w&nbsp;Lublinie, zgodnie z&nbsp;ustawą xxyyzz
+												    Wyrażam zgodę na przetwarzanie moich danych osobowych i&nbsp;przyjmuję do wiadomości, że:
+												    <ol>
+												    	<li>Administratorem danych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.</li>
+												    	<li>Dane osobowe są zbierane w&nbsp;celu przeprowadzenia konsultacji społecznych w&nbsp;formie panelu obywatelskiego.</li>
+												    	<li>Mam prawo dostępu do treści swoich danych i&nbsp;ich poprawiania.</li>
+												    	<li>Podanie danych jest dobrowolne (niepodanie informacji wyklucza uczestniczenie w&nbsp;ostatecznym losowaniu). </li>
+												    </ol>
 											    </div>
-											    <div class="under-text">
-			                                		<span class="info-text">
-			                                		Administratorem danych osobowych jest Prezydent Miasta Lublin, pl. Króla Władysława Łokietka 1, 20-109 Lublin.<br/>Celem zbierania danych jest wdrożenie i&nbsp;realizacja Budżetu Obywatelskiego w Lublinie.<br/>Mam prawo dostępu do treści swoich danych oraz ich poprawiania.<br/>Podanie danych osobowych jest dobrowolne (nie podanie informacji wyklucza uczestniczenie w ostatecznej liście losowania).
-</span>
-			                                	</div>
 		                                    </div>
 		                                </div>
 		                            </div>
@@ -128,7 +129,7 @@
 			confirmPrivacy = $('form').find('input[name="confirm-privacy"]').prop('checked');
 
 			{literal}
-			if(email == '' || !validateEmail(email))
+			if(email.length > 0 && !validateEmail(email))
 				return {return:false, msg:'Nie podano email-u lub jest niepoprawny!'};
 
 			if(phone == '' || isNaN(phone))

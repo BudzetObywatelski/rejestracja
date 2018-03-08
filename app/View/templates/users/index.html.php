@@ -33,11 +33,9 @@
 
 			                            	<div class="col-sm-12">
 			                            		<div class="time-info">
-													<h5 class="text-center"><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim<br/> „Co zrobić aby oddychać czystym powietrzem w&nbsp;Lublinie”!</b></h5>
+													<h5 class="text-center"><b>Serdecznie zapraszamy do udziału w&nbsp;panelu obywatelskim<br/> „Co zrobić aby oddychać czystym powietrzem w&nbsp;Lublinie?”</b></h5>
 
-													<p>Prosimy o&nbsp;rejestrację w&nbsp;formularzu poniżej, jeśli zdecydował/a się Pan/Pani w&nbsp;ostatecznym losowaniu. Prosimy o&nbsp;przygotowanie  otrzymanego pocztą zaproszenia wraz z&nbsp;kodem identyfikacyjnym. <br/><br/>
-													Rejestracja przez Internet jest otwarta od <span class="date">{$registerConfig.start}</span>, do <span class="date">{$registerConfig.end}</span>, do godziny 23:59.<br/><br/>
-													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="www.lublin.eu/panel">www.lublin.eu/panel</a>.<br/><br/>
+													<p>Jeżeli zdecydował/a się Pan/Pani na wzięcie udziału w&nbsp;panelu i&nbsp;zgłoszenie się do ostatecznego losowania, prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z&nbsp;kodem identyfikacyjnym znajdującym się w&nbsp;prawym górnym rogu.  
 													</p>
 												</div>
 			                            	</div>
@@ -68,7 +66,7 @@
 			                                </div>
 
 			                                <div class="col-sm-12">
-												<span class="adnotation">*Kod identyfikacyjny znajduje się w&nbsp;prawym górnym rogu</span>
+												<span class="adnotation">*Kod identyfikacyjny znajduje się w&nbsp;prawym górnym rogu w&nbsp;liście otrzymanym pocztą</span>
 											</div>
 
 			                                <div class="col-sm-12">
@@ -108,7 +106,7 @@
 	                                <div class="pull-left footer-contact">
 	                                	<span>
 		                                	Kontakt telefoniczny: 81 466 19 00<br/>
-											Email: beo@lublin.pl
+											Email: obywatelski@lublin.eu 
 										</span>
 	                                </div>
 	                                <div class="clearfix"></div>
