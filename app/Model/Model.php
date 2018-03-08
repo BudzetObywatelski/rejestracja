@@ -20,6 +20,7 @@
  */
 
 namespace Model;
+use Dframe\Database\Database;
 
 /**
  *
@@ -34,7 +35,7 @@ namespace Model;
 
 abstract class Model extends \Dframe\Model
 {
-    public function start()
+    public function init()
     {
     	try {
             if(!empty(DB_HOST)) {
@@ -44,8 +45,8 @@ abstract class Model extends \Dframe\Model
                     'username' => DB_USER, 
                     'password' => DB_PASS,
                 );
-                $this->db = new Database($dbConfig);
-                $this->db->setErrorLog(setErrorLog); // Debugowanie
+                $this->baseClass->db = new Database($dbConfig);
+                $this->baseClass->db->setErrorLog(setErrorLog); // Debugowanie
             }
         } catch(DBException $e) {
             echo 'The connect can not create: ' . $e->getMessage();
