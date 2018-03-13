@@ -38,6 +38,11 @@ location ~ .php$ {
 # Instrukcja postawienia panelu
 W poniższych krokach, są opisane niezbędne czynności do postawienia i konfiguracji panelu
 
+## Instalacja 
+```bash  
+composer create-project budzetobywatelski/rejestracja
+```
+
 ## Baza danych
 Tworzymy bazę danych na swoim serwerze. Następnie przechodzimy do projektu do pliku
 ```bash  
