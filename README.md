@@ -38,10 +38,13 @@ location ~ .php$ {
 # Instrukcja postawienia panelu
 W poniższych krokach, są opisane niezbędne czynności do postawienia i konfiguracji panelu
 
-## Instalacja 
+## Instalacja
+Pobrać odpowiednia Paczkę z github wgrać na serwer a następnie  uruchomić polecenie 
+
 ```bash  
-composer create-project budzetobywatelski/rejestracja
+composer install
 ```
+
 
 ## Baza danych
 Tworzymy bazę danych na swoim serwerze. Następnie przechodzimy do projektu do pliku
