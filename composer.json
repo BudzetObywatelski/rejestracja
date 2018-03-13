@@ -7,6 +7,7 @@
     "autoload": {
         "psr-4": {"": "app/"}
     },
+    "minimum-stability": "dev",
     "require": {
         "dframe/dframe": "3.27.1",
         "dframe/database": "^1.3",
