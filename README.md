@@ -47,6 +47,25 @@ composer install
 
 W przypadku problemów z composerem https://getcomposer.org/download/
 
+## Plik konfiguracyjny
+Przechodzimy do pliku 
+```bash 
+web/config.php
+```
+
+Zmieniamy sól na swoją (losowe znaki).
+```php
+define('SALT', "YOURSALT123"); // SALT
+```
+
+Ustawiamy adres naszej strony w zmiennej ***HTTP_HOST*** zamiast ***website.url***
+```php
+else {
+    define('HTTP_HOST', 'website.url');
+}
+```
+
+
 ## Baza danych
 Tworzymy bazę danych na swoim serwerze. Następnie przechodzimy do projektu do pliku
 ```bash  
