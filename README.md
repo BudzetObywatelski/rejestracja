@@ -39,12 +39,13 @@ location ~ .php$ {
 W poniższych krokach, są opisane niezbędne czynności do postawienia i konfiguracji panelu
 
 ## Instalacja
-Pobrać odpowiednia Paczkę z github wgrać na serwer a następnie  uruchomić polecenie 
+Pobrać odpowiednia Paczkę z github wgrać na serwer a następnie  uruchomić polecenie z pozomu konsoli
 
 ```bash  
 composer install
 ```
 
+W przypadku problemów z composerem https://getcomposer.org/download/
 
 ## Baza danych
 Tworzymy bazę danych na swoim serwerze. Następnie przechodzimy do projektu do pliku
