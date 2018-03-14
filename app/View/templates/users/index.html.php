@@ -38,7 +38,7 @@
 													<p>Jeżeli zdecydował/a się Pan/Pani na wzięcie udziału w&nbsp;panelu i&nbsp;zgłoszenie się do ostatecznego losowania, prosimy o&nbsp;przygotowanie otrzymanego pocztą zaproszenia wraz z&nbsp;kodem identyfikacyjnym znajdującym się w&nbsp;prawym górnym rogu.  
 													<br/><br/>
 													Rejestracja przez Internet jest otwarta od <span class="date">{$registerConfig.start}</span>, do <span class="date">{$registerConfig.end}</span>, do godziny 23:59.<br/><br/>
-													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="www.lublin.eu/panel">www.lublin.eu/panel</a>.<br/><br/>
+													Więcej informacji o&nbsp;panelu obywatelskim w&nbsp;Lublinie jest dostępnych na <a href="https://www.lublin.eu/panel">www.lublin.eu/panel</a>.<br/><br/>
 													</p>
 												</div>
 			                            	</div>
