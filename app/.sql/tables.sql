@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `quarter` varchar(100) DEFAULT NULL,
   `age` int(4) DEFAULT NULL,
   `firstname` varchar(100) DEFAULT NULL,
-  `lastname` int(100) DEFAULT NULL,
+  `lastname` varchar(100) DEFAULT NULL,
   `city` varchar(100) DEFAULT NULL,
   `street` varchar(100) DEFAULT NULL,
   `build_nr` varchar(30) DEFAULT NULL,
