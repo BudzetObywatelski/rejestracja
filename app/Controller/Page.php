@@ -69,17 +69,17 @@ class PageController extends \Controller\Controller
             $file = $_FILES['file'];
 
             $schemeToDb = array(
-                'kod' => 'pass_code',
-                'plec' => 'sex',
-                'dzielnica' => 'quarter',
-                'wiek' => 'age',
-                'imie' => 'firstname',
-                'naziwsko' => 'lastname',
-                'miasto' => 'city',
-                'ulica' => 'street',
-                'nr budynku' => 'build_nr',
-                'nr lokalu' => 'flat_nr',
-                'kod pocztowy' => 'post_code'
+                'pass_code' => 'pass_code',
+                'sex' => 'sex',
+                'region' => 'quarter',
+                'age' => 'age',
+                'firstname' => 'firstname',
+                'lastname' => 'lastname',
+                'city' => 'city',
+                'street' => 'street',
+                'build_nr' => 'build_nr',
+                'flat_nr' => 'flat_nr',
+                'post_code' => 'post_code'
             );
 
             $scheme = array();
