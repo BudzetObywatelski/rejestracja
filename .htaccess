@@ -1,22 +1,9 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    
-    
-    RewriteCond %{REQUEST_URI}  filestorage/images/(.*)
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ web/index.php?task=page&action=images [QSA,L]
-    
-    RewriteCond %{REQUEST_URI}  filestorage/file/(.*)
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ web/index.php?task=page&action=file [QSA,L]
-    
-    RewriteCond %{REQUEST_URI} !^.*\.(vendor|jpg|css|js|gif|png|woff2|ttf|otf|eot|woff|min|map)$ [NC]
-    RewriteRule ^(.*)$ web/index.php [QSA,L]
-    
-    
-    RewriteCond %{REQUEST_URI} !web/
-    RewriteRule (.*) web/$1 [L]
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ web/$1
 
-</IfModule>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ web/index.php [QSA,L]
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [
