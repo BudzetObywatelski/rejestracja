@@ -104,7 +104,7 @@
 		                        </div>
 	                        	<div class="wizard-footer">
 	                            	<div class="pull-right">
-	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="Zaloguj"/>
+	                                    <input type='button' class='btn btn-fill btn-success btn-wd login-button' name='Login' value="Zarejestruj"/>
 	                                </div>
 	                                <div class="pull-left footer-contact">
 	                                	<span>
