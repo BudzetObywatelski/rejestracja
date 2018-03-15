@@ -51,12 +51,17 @@ class PageController extends \Controller\Controller
             return $this->router->redirect('users/index');
         }
 
-        if (!isset($_SERVER['PHP_AUTH_PW']) OR !isset($_SERVER['PHP_AUTH_USER']) OR $_SERVER['PHP_AUTH_PW'] != $importConfig['password'] OR $_SERVER['PHP_AUTH_USER'] != $importConfig['user']) {
-            return Response::create('Anulowano przejście na stronę.')
-                ->status(401)
-                ->headers([
-                    'WWW-Authenticate' => 'Basic realm="Login"', 
-                ]); 
+        if(isset($_POST['login']) AND isset($_POST['pw']) AND $_POST['login'] == $importConfig['user'] AND $_POST['pw'] == $importConfig['password']){
+            $this->baseClass->session->set('aid', true);
+            return $this->router->redirect('Page/importCSV');
+        }
+
+        $sessionAId = $this->baseClass->session->get('aid');
+
+        if ($sessionAId == null OR empty($sessionAId) OR $sessionAId != true){
+            $View = $this->loadView('Index');
+            $View->render('importlogin');
+            return;
         }
 
         
@@ -69,17 +74,17 @@ class PageController extends \Controller\Controller
             $file = $_FILES['file'];
 
             $schemeToDb = array(
-                'pass_code' => 'pass_code',
-                'sex' => 'sex',
-                'region' => 'quarter',
-                'age' => 'age',
-                'firstname' => 'firstname',
-                'lastname' => 'lastname',
-                'city' => 'city',
-                'street' => 'street',
-                'build_nr' => 'build_nr',
-                'flat_nr' => 'flat_nr',
-                'post_code' => 'post_code'
+                'kod' => 'pass_code',
+                'plec' => 'sex',
+                'dzielnica' => 'quarter',
+                'wiek' => 'age',
+                'imie' => 'firstname',
+                'naziwsko' => 'lastname',
+                'miasto' => 'city',
+                'ulica' => 'street',
+                'nr budynku' => 'build_nr',
+                'nr lokalu' => 'flat_nr',
+                'kod pocztowy' => 'post_code'
             );
 
             $scheme = array();
